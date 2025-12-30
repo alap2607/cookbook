@@ -1,0 +1,369 @@
+{
+  "recipes": [
+    {
+      "id": "1",
+      "title": "Creamy Paneer Butter Masala",
+      "description": "Rich, creamy, and packed with aromatic spices—a vegetarian classic!",
+      "category": "vegetarian",
+      "cookTime": 30,
+      "servings": 4,
+      "imageUrl": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&h=400&fit=crop",
+      "ingredients": [
+        {
+          "item": "Paneer (cubed)",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "item": "Butter",
+          "quantity": 3,
+          "unit": "tbsp"
+        },
+        {
+          "item": "Tomato puree",
+          "quantity": 1.5,
+          "unit": "cups"
+        },
+        {
+          "item": "Heavy cream",
+          "quantity": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "Onion (finely chopped)",
+          "quantity": 1,
+          "unit": "medium"
+        },
+        {
+          "item": "Ginger-garlic paste",
+          "quantity": 1,
+          "unit": "tbsp"
+        },
+        {
+          "item": "Kashmiri red chili powder",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "Garam masala",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "Kasuri methi (dried fenugreek)",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "Salt",
+          "quantity": 1,
+          "unit": "to taste"
+        },
+        {
+          "item": "Sugar",
+          "quantity": 1,
+          "unit": "tsp"
+        }
+      ],
+      "instructions": [
+        "Heat butter in a pan over medium heat.",
+        "Add chopped onions and sauté until golden brown.",
+        "Add ginger-garlic paste and cook for 1-2 minutes until fragrant.",
+        "Add tomato puree, red chili powder, salt, and sugar. Cook for 8-10 minutes until oil separates.",
+        "Add garam masala and kasuri methi. Mix well.",
+        "Add heavy cream and stir to combine.",
+        "Add paneer cubes and simmer for 5 minutes.",
+        "Garnish with cream and serve hot with naan or rice."
+      ],
+      "tags": [
+        "Indian",
+        "Vegetarian",
+        "Creamy",
+        "Spicy",
+        "Main Course"
+      ],
+      "createdAt": "2025-01-01T10:00:00Z",
+      "updatedAt": "2025-01-01T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Tandoori Chicken",
+      "description": "Juicy, flavorful chicken marinated in yogurt and spices, grilled to perfection.",
+      "category": "chicken",
+      "cookTime": 40,
+      "servings": 4,
+      "imageUrl": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&h=400&fit=crop",
+      "ingredients": [
+        {
+          "item": "Chicken legs or thighs",
+          "quantity": 800,
+          "unit": "g"
+        },
+        {
+          "item": "Greek yogurt",
+          "quantity": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "Lemon juice",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "item": "Ginger-garlic paste",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "item": "Tandoori masala",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "item": "Kashmiri red chili powder",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "Turmeric powder",
+          "quantity": 0.5,
+          "unit": "tsp"
+        },
+        {
+          "item": "Garam masala",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "Salt",
+          "quantity": 1,
+          "unit": "to taste"
+        },
+        {
+          "item": "Vegetable oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ],
+      "instructions": [
+        "Make deep cuts in the chicken pieces to allow marinade to penetrate.",
+        "In a large bowl, mix yogurt, lemon juice, ginger-garlic paste, tandoori masala, red chili powder, turmeric, garam masala, salt, and oil.",
+        "Add chicken to the marinade and coat well. Cover and refrigerate for at least 2 hours (or overnight for best results).",
+        "Preheat grill or oven to 200°C (400°F).",
+        "If using oven, place chicken on a baking tray lined with foil. Brush with oil.",
+        "Grill or bake for 35-40 minutes, turning halfway, until chicken is charred and cooked through.",
+        "Garnish with lemon wedges and sliced onions. Serve hot with mint chutney."
+      ],
+      "tags": [
+        "Indian",
+        "Chicken",
+        "Grilled",
+        "Spicy",
+        "Main Course"
+      ],
+      "createdAt": "2025-01-01T10:30:00Z",
+      "updatedAt": "2025-01-01T10:30:00Z"
+    },
+    {
+      "id": "3",
+      "title": "Dal Tadka",
+      "description": "Comforting lentils tempered with aromatic spices—perfect with rice!",
+      "category": "vegetarian",
+      "cookTime": 35,
+      "servings": 4,
+      "imageUrl": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=400&fit=crop",
+      "ingredients": [
+        {
+          "item": "Water",
+          "quantity": 3,
+          "unit": "cups"
+        },
+        {
+          "item": "Turmeric powder",
+          "quantity": 0.5,
+          "unit": "tsp"
+        },
+        {
+          "item": "Ghee or oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "item": "Cumin seeds",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "Garlic cloves (minced)",
+          "quantity": 4,
+          "unit": "whole"
+        },
+        {
+          "item": "Dried red chilies",
+          "quantity": 2,
+          "unit": "whole"
+        },
+        {
+          "item": "Onion (sliced)",
+          "quantity": 1,
+          "unit": "medium"
+        },
+        {
+          "item": "Tomato (chopped)",
+          "quantity": 1,
+          "unit": "medium"
+        },
+        {
+          "item": "Green chili (slit)",
+          "quantity": 1,
+          "unit": "whole"
+        },
+        {
+          "item": "Garam masala",
+          "quantity": 0.5,
+          "unit": "tsp"
+        },
+        {
+          "item": "Coriander leaves (chopped)",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "item": "Salt",
+          "quantity": 1,
+          "unit": "to taste"
+        }
+      ],
+      "instructions": [
+        "Rinse lentils thoroughly and soak for 15 minutes.",
+        "In a pressure cooker, add lentils, water, turmeric, and salt. Cook for 3-4 whistles until soft and mushy.",
+        "Mash the dal lightly with a spoon. Set aside.",
+        "Heat ghee in a pan. Add cumin seeds and let them crackle.",
+        "Add minced garlic and dried red chilies. Sauté for 30 seconds.",
+        "Add sliced onions and cook until golden brown.",
+        "Add chopped tomatoes and green chili. Cook until tomatoes soften.",
+        "Add garam masala and mix well.",
+        "Pour this tempering (tadka) over the cooked dal. Mix gently.",
+        "Garnish with fresh coriander leaves. Serve hot with rice or roti."
+      ],
+      "tags": [
+        "Indian",
+        "Vegetarian",
+        "Lentils",
+        "Comfort Food",
+        "Main Course"
+      ],
+      "createdAt": "2025-01-01T11:00:00Z",
+      "updatedAt": "2025-12-30T19:43:44.686Z"
+    },
+    {
+      "id": "4",
+      "title": "Spicy Chicken Tacos",
+      "description": "A fusion favorite with Indian spice twist on a Mexican classic.",
+      "category": "chicken",
+      "cookTime": 25,
+      "servings": 4,
+      "imageUrl": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&h=400&fit=crop",
+      "ingredients": [
+        {
+          "item": "Chicken breast (diced)",
+          "quantity": 500,
+          "unit": "g"
+        },
+        {
+          "item": "Taco shells or tortillas",
+          "quantity": 8,
+          "unit": "whole"
+        },
+        {
+          "item": "Yogurt",
+          "quantity": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "Ginger-garlic paste",
+          "quantity": 1,
+          "unit": "tbsp"
+        },
+        {
+          "item": "Red chili powder",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "Cumin powder",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "Coriander powder",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "Garam masala",
+          "quantity": 0.5,
+          "unit": "tsp"
+        },
+        {
+          "item": "Lettuce (shredded)",
+          "quantity": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "Tomato (diced)",
+          "quantity": 1,
+          "unit": "medium"
+        },
+        {
+          "item": "Onion (sliced)",
+          "quantity": 1,
+          "unit": "medium"
+        },
+        {
+          "item": "Sour cream or yogurt",
+          "quantity": 0.25,
+          "unit": "cup"
+        },
+        {
+          "item": "Cilantro (chopped)",
+          "quantity": 2,
+          "unit": "tbsp"
+        },
+        {
+          "item": "Lime wedges",
+          "quantity": 4,
+          "unit": "whole"
+        },
+        {
+          "item": "Salt",
+          "quantity": 1,
+          "unit": "to taste"
+        },
+        {
+          "item": "Oil",
+          "quantity": 2,
+          "unit": "tbsp"
+        }
+      ],
+      "instructions": [
+        "In a bowl, marinate chicken with yogurt, ginger-garlic paste, red chili powder, cumin, coriander, garam masala, and salt for 30 minutes.",
+        "Heat oil in a pan over medium-high heat.",
+        "Add marinated chicken and cook for 12-15 minutes until fully cooked and slightly charred.",
+        "Warm taco shells or tortillas in a dry pan or oven.",
+        "Assemble tacos: place chicken in shells, top with shredded lettuce, diced tomatoes, and sliced onions.",
+        "Drizzle with sour cream or yogurt.",
+        "Garnish with fresh cilantro and serve with lime wedges."
+      ],
+      "tags": [
+        "Fusion",
+        "Chicken",
+        "Mexican",
+        "Spicy",
+        "Quick Meals"
+      ],
+      "createdAt": "2025-01-01T11:30:00Z",
+      "updatedAt": "2025-01-01T11:30:00Z"
+    }
+  ]
+}
