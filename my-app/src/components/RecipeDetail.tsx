@@ -63,9 +63,6 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
         <Link to="/recipes" className="btn-secondary">
           Back to Recipes
         </Link>
-        <Link to={`/admin?edit=${recipe.id}`} className="btn-primary">
-          Edit Recipe
-        </Link>
       </div>
     </div>
   );

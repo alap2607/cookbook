@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useRecipes, useRecipe } from "../hooks/useRecipes";
@@ -16,6 +16,10 @@ export default function AdminPage() {
   const [showForm, setShowForm] = useState(!!editId);
   const { recipes, loading, error, refetch } = useRecipes();
   const { recipe: editRecipe } = useRecipe(editId || undefined);
+
+  useEffect(() => {
+    setShowForm(!!editId);
+  }, [editId]);
 
   const handleCreate = async (data: CreateRecipeInput) => {
     await api.createRecipe(data);
