@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {
   ChefHat,
@@ -9,7 +9,6 @@ import {
   Zap,
   Sparkles,
   Heart,
-  Search,
   TrendingUp,
   Clock,
   Users,
@@ -26,15 +25,72 @@ import Header from '../components/Header';
 
 export default function HomePage() {
   const { recipes, loading, error } = useRecipes();
-  const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState('');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('vegetarian');
 
   // Get recipe of the week (first recipe)
   const recipeOfTheWeek = recipes[0];
 
   // Get latest recipes (last 3)
   const latestRecipes = recipes.slice(-3).reverse();
+
+  // Category content
+  const categoryContent = {
+    vegetarian: {
+      title: 'Vegetarian Delights',
+      description: 'Discover our collection of delicious vegetarian recipes that celebrate fresh ingredients and bold flavors. From traditional Indian dishes to creative fusion cuisine, these recipes prove that vegetarian cooking is anything but boring.',
+      description2: 'Each recipe is crafted with love and tested to perfection, ensuring you get restaurant-quality results in your own kitchen. Whether you\'re a long-time vegetarian or just exploring meatless options, you\'ll find something to love here.',
+      badge1: '🥗 Vegetarian Recipes',
+      badge2: '⚡ Quick & Easy Options',
+      badge3: '🌶️ Spicy & Mild Variants',
+      filterKey: 'vegetarian'
+    },
+    chicken: {
+      title: 'Chicken Classics',
+      description: 'Explore our collection of flavorful chicken recipes that are simple yet impressive. From tender grilled chicken to rich curries, these recipes showcase the versatility of chicken in both traditional and contemporary styles.',
+      description2: 'Perfect for family dinners or special occasions, each chicken recipe is designed to be easy to follow while delivering amazing taste. Learn the secrets to perfectly cooked, juicy chicken every time.',
+      badge1: '🍗 Chicken Recipes',
+      badge2: '🔥 Grilled & Roasted',
+      badge3: '🍛 Curries & Stews',
+      filterKey: 'chicken'
+    },
+    quick: {
+      title: 'Quick & Easy Meals',
+      description: 'Short on time but don\'t want to compromise on taste? Our quick recipes are designed for busy lifestyles without sacrificing flavor. Ready in 30 minutes or less, these dishes are perfect for weeknight dinners.',
+      description2: 'From simple stir-fries to one-pot wonders, discover how you can create delicious, wholesome meals even on your busiest days. Smart cooking techniques and clever ingredient combinations make it all possible.',
+      badge1: '⚡ Under 30 Minutes',
+      badge2: '👨‍🍳 Easy to Follow',
+      badge3: '🥘 One-Pot Meals',
+      filterKey: 'quick'
+    },
+    spicy: {
+      title: 'Spicy Favorites',
+      description: 'For those who love the heat! Our spicy recipe collection features bold, fiery flavors that will excite your taste buds. From traditional Indian spices to international hot sauces, we\'ve got the perfect level of spice for you.',
+      description2: 'Each recipe comes with adjustable heat levels, so you can customize the spice to your preference. Learn which spices create the best flavor profiles and how to balance heat with other taste elements.',
+      badge1: '🌶️ Spicy Dishes',
+      badge2: '🔥 Adjustable Heat',
+      badge3: '🇮🇳 Indian Spices',
+      filterKey: 'spicy'
+    },
+    indian: {
+      title: 'Indian Cuisine',
+      description: 'Dive into the rich and diverse world of Indian cooking. Our authentic recipes bring you the flavors of different regions of India, from North Indian curries to South Indian delicacies, each with its unique taste and aroma.',
+      description2: 'Learn traditional cooking techniques, understand the importance of spice blends, and discover how to create restaurant-quality Indian food at home. These time-tested recipes have been passed down through generations.',
+      badge1: '🇮🇳 Authentic Indian',
+      badge2: '🌿 Traditional Spices',
+      badge3: '🍛 Regional Varieties',
+      filterKey: 'indian'
+    },
+    healthy: {
+      title: 'Healthy Options',
+      description: 'Eating healthy doesn\'t mean boring food! Our nutritious recipes are packed with vitamins, minerals, and flavor. Whether you\'re counting calories or just want to eat cleaner, these recipes make healthy eating enjoyable.',
+      description2: 'From protein-rich meals to fiber-packed dishes, discover how to nourish your body while satisfying your taste buds. Each recipe includes nutritional highlights to help you make informed choices.',
+      badge1: '🥗 Nutritious & Tasty',
+      badge2: '💪 High Protein',
+      badge3: '🌱 Whole Foods',
+      filterKey: 'healthy'
+    }
+  };
 
   // Handle scroll for "back to top" button
   useEffect(() => {
@@ -44,13 +100,6 @@ export default function HomePage() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/recipes?search=${searchQuery}`);
-    }
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -68,109 +117,348 @@ export default function HomePage() {
     <div className="app">
       <Header />
 
-      {/* Enhanced Hero Section with Search */}
-      <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
-        <div className="hero-content">
-          <h1 className="hero-title">Siri's Kitchen</h1>
-          <p className="hero-tagline">Where Passion Meets Flavor</p>
-          <p className="hero-description">Welcome to my culinary journey! I'm passionate about creating delicious vegetarian dishes and flavorful chicken recipes that bring joy to every table.</p>
-
-          {/* Search Bar */}
-          <form onSubmit={handleSearch} style={{
-            marginTop: '25px',
-            marginBottom: '20px',
-            display: 'flex',
-            gap: '10px',
-            maxWidth: '500px'
-          }}>
-            <div style={{
-              flex: 1,
-              position: 'relative',
-              display: 'flex',
-              alignItems: 'center'
+      {/* Hero Section */}
+      <section style={{
+        position: 'relative',
+        background: 'linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%)',
+        padding: '60px 60px',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          maxWidth: '1400px',
+          margin: '0 auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '80px',
+          position: 'relative',
+          zIndex: 1
+        }}>
+          <div style={{ flex: 1, maxWidth: '500px' }}>
+            <h1 style={{
+              fontSize: '3.2rem',
+              fontWeight: 700,
+              lineHeight: 1.2,
+              marginBottom: '25px',
+              color: '#B85C3E',
+              fontFamily: 'Georgia, serif'
             }}>
-              <Search size={20} style={{
-                position: 'absolute',
-                left: '15px',
-                color: 'rgba(255, 255, 255, 0.7)'
-              }} />
-              <input
-                type="text"
-                placeholder="Search for recipes..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px 15px 12px 45px',
-                  borderRadius: '50px',
-                  border: '2px solid rgba(255, 255, 255, 0.3)',
-                  fontSize: '1rem',
-                  background: 'rgba(255, 255, 255, 0.2)',
-                  color: 'white',
-                  backdropFilter: 'blur(10px)',
-                  outline: 'none'
-                }}
-              />
-            </div>
-            <button type="submit" className="cta-button" style={{ padding: '12px 30px' }}>
-              Search
-            </button>
-          </form>
+              Find 100 ways to make your food taste better
+            </h1>
 
-          <Link to="/recipes" className="cta-button">Explore All Recipes</Link>
-        </div>
-        <div className="hero-image-placeholder">
-          <ChefHat size={90} strokeWidth={1.5} />
+            <p style={{
+              fontSize: '1rem',
+              color: '#5D4E37',
+              lineHeight: 1.6,
+              marginBottom: '30px'
+            }}>
+              From pure spices to whole ones, sprinklers to blended spices, Culinaria covers the entire spectrum of home and professional cooking in India & around the world.
+            </p>
+
+            <Link to="/recipes" style={{
+              display: 'inline-block',
+              padding: '14px 40px',
+              background: '#B85C3E',
+              color: 'white',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '0.95rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              textDecoration: 'none',
+              transition: 'background 0.3s ease'
+            }}>
+              EXPLORE RECIPES
+            </Link>
+          </div>
+
+          <div style={{
+            flex: 1,
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '20px',
+            maxWidth: '600px'
+          }}>
+            {recipes.slice(0, 4).map((recipe) => (
+              <div key={recipe.id} style={{
+                borderRadius: '20px',
+                overflow: 'hidden',
+                boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)',
+                height: '200px'
+              }}>
+                <img
+                  src={recipe.imageUrl}
+                  alt={recipe.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Statistics Section */}
+      {/* Recipe Collections Section */}
       <section style={{
-        padding: '60px 20px',
-        background: 'linear-gradient(135deg, var(--first-color), var(--second-color))',
-        color: 'white'
+        background: 'white',
+        padding: '80px 60px'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{
+          maxWidth: '1400px',
+          margin: '0 auto',
+          textAlign: 'center'
+        }}>
+          <h2 style={{
+            fontSize: '2.5rem',
+            fontWeight: 700,
+            color: '#2d2d2d',
+            marginBottom: '40px',
+            fontFamily: 'Georgia, serif'
+          }}>
+            Browse Our Recipe Collections
+          </h2>
+
+          {/* Recipe Category Tabs */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '40px',
+            marginBottom: '60px',
+            borderBottom: '2px solid #E8D7C3',
+            paddingBottom: '15px',
+            flexWrap: 'wrap'
+          }}>
+            <button onClick={() => setSelectedCategory('vegetarian')} style={{
+              background: 'none',
+              border: 'none',
+              color: selectedCategory === 'vegetarian' ? '#B85C3E' : '#5D4E37',
+              fontSize: '1rem',
+              fontWeight: selectedCategory === 'vegetarian' ? 600 : 500,
+              cursor: 'pointer',
+              borderBottom: selectedCategory === 'vegetarian' ? '3px solid #B85C3E' : 'none',
+              paddingBottom: '15px',
+              transition: 'all 0.3s ease'
+            }}>
+              Vegetarian
+            </button>
+            <button onClick={() => setSelectedCategory('chicken')} style={{
+              background: 'none',
+              border: 'none',
+              color: selectedCategory === 'chicken' ? '#B85C3E' : '#5D4E37',
+              fontSize: '1rem',
+              fontWeight: selectedCategory === 'chicken' ? 600 : 500,
+              cursor: 'pointer',
+              borderBottom: selectedCategory === 'chicken' ? '3px solid #B85C3E' : 'none',
+              paddingBottom: '15px',
+              transition: 'all 0.3s ease'
+            }}>
+              Chicken
+            </button>
+            <button onClick={() => setSelectedCategory('quick')} style={{
+              background: 'none',
+              border: 'none',
+              color: selectedCategory === 'quick' ? '#B85C3E' : '#5D4E37',
+              fontSize: '1rem',
+              fontWeight: selectedCategory === 'quick' ? 600 : 500,
+              cursor: 'pointer',
+              borderBottom: selectedCategory === 'quick' ? '3px solid #B85C3E' : 'none',
+              paddingBottom: '15px',
+              transition: 'all 0.3s ease'
+            }}>
+              Quick Meals
+            </button>
+            <button onClick={() => setSelectedCategory('spicy')} style={{
+              background: 'none',
+              border: 'none',
+              color: selectedCategory === 'spicy' ? '#B85C3E' : '#5D4E37',
+              fontSize: '1rem',
+              fontWeight: selectedCategory === 'spicy' ? 600 : 500,
+              cursor: 'pointer',
+              borderBottom: selectedCategory === 'spicy' ? '3px solid #B85C3E' : 'none',
+              paddingBottom: '15px',
+              transition: 'all 0.3s ease'
+            }}>
+              Spicy
+            </button>
+            <button onClick={() => setSelectedCategory('indian')} style={{
+              background: 'none',
+              border: 'none',
+              color: selectedCategory === 'indian' ? '#B85C3E' : '#5D4E37',
+              fontSize: '1rem',
+              fontWeight: selectedCategory === 'indian' ? 600 : 500,
+              cursor: 'pointer',
+              borderBottom: selectedCategory === 'indian' ? '3px solid #B85C3E' : 'none',
+              paddingBottom: '15px',
+              transition: 'all 0.3s ease'
+            }}>
+              Indian Cuisine
+            </button>
+            <button onClick={() => setSelectedCategory('healthy')} style={{
+              background: 'none',
+              border: 'none',
+              color: selectedCategory === 'healthy' ? '#B85C3E' : '#5D4E37',
+              fontSize: '1rem',
+              fontWeight: selectedCategory === 'healthy' ? 600 : 500,
+              cursor: 'pointer',
+              borderBottom: selectedCategory === 'healthy' ? '3px solid #B85C3E' : 'none',
+              paddingBottom: '15px',
+              transition: 'all 0.3s ease'
+            }}>
+              Healthy Options
+            </button>
+          </div>
+
+          {/* Featured Category Content */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '30px',
-            textAlign: 'center'
+            gridTemplateColumns: '1fr 1fr',
+            gap: '80px',
+            alignItems: 'center',
+            textAlign: 'left'
           }}>
-            <div style={{ animation: 'fadeInUp 0.6s ease-out' }}>
-              <BookOpen size={50} style={{ margin: '0 auto 15px' }} />
-              <h3 style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: '10px 0' }}>
-                {recipes.length}+
+            <div>
+              <h3 style={{
+                fontSize: '2rem',
+                fontWeight: 700,
+                color: '#2d2d2d',
+                marginBottom: '20px',
+                fontFamily: 'Georgia, serif'
+              }}>
+                {categoryContent[selectedCategory as keyof typeof categoryContent].title}
               </h3>
-              <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>Tested Recipes</p>
+              <p style={{
+                fontSize: '1rem',
+                color: '#666',
+                lineHeight: 1.8,
+                marginBottom: '20px'
+              }}>
+                {categoryContent[selectedCategory as keyof typeof categoryContent].description}
+              </p>
+              <p style={{
+                fontSize: '1rem',
+                color: '#666',
+                lineHeight: 1.8,
+                marginBottom: '20px'
+              }}>
+                {categoryContent[selectedCategory as keyof typeof categoryContent].description2}
+              </p>
+              <div style={{
+                display: 'flex',
+                gap: '15px',
+                marginTop: '30px',
+                flexWrap: 'wrap'
+              }}>
+                <div style={{
+                  background: '#FFF8EB',
+                  padding: '10px 20px',
+                  borderRadius: '25px',
+                  fontSize: '0.9rem',
+                  color: '#5D4E37',
+                  fontWeight: 600
+                }}>
+                  {categoryContent[selectedCategory as keyof typeof categoryContent].badge1}
+                </div>
+                <div style={{
+                  background: '#FFF8EB',
+                  padding: '10px 20px',
+                  borderRadius: '25px',
+                  fontSize: '0.9rem',
+                  color: '#5D4E37',
+                  fontWeight: 600
+                }}>
+                  {categoryContent[selectedCategory as keyof typeof categoryContent].badge2}
+                </div>
+                <div style={{
+                  background: '#FFF8EB',
+                  padding: '10px 20px',
+                  borderRadius: '25px',
+                  fontSize: '0.9rem',
+                  color: '#5D4E37',
+                  fontWeight: 600
+                }}>
+                  {categoryContent[selectedCategory as keyof typeof categoryContent].badge3}
+                </div>
+              </div>
+              <Link
+                to={`/recipes?category=${categoryContent[selectedCategory as keyof typeof categoryContent].filterKey}`}
+                style={{
+                  display: 'inline-block',
+                  marginTop: '30px',
+                  padding: '14px 35px',
+                  background: '#B85C3E',
+                  color: 'white',
+                  borderRadius: '8px',
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  transition: 'background 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.background = '#8B4513'}
+                onMouseLeave={(e) => e.currentTarget.style.background = '#B85C3E'}
+              >
+                Explore {categoryContent[selectedCategory as keyof typeof categoryContent].title}
+              </Link>
             </div>
-            <div style={{ animation: 'fadeInUp 0.6s ease-out 0.1s', animationFillMode: 'backwards' }}>
-              <Users size={50} style={{ margin: '0 auto 15px' }} />
-              <h3 style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: '10px 0' }}>
-                10K+
-              </h3>
-              <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>Happy Cooks</p>
-            </div>
-            <div style={{ animation: 'fadeInUp 0.6s ease-out 0.2s', animationFillMode: 'backwards' }}>
-              <Salad size={50} style={{ margin: '0 auto 15px' }} />
-              <h3 style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: '10px 0' }}>
-                4
-              </h3>
-              <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>Categories</p>
-            </div>
-            <div style={{ animation: 'fadeInUp 0.6s ease-out 0.3s', animationFillMode: 'backwards' }}>
-              <Award size={50} style={{ margin: '0 auto 15px' }} />
-              <h3 style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: '10px 0' }}>
-                4.8★
-              </h3>
-              <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>Average Rating</p>
+
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+              {(() => {
+                const currentCategory = categoryContent[selectedCategory as keyof typeof categoryContent].filterKey;
+                const filteredRecipes = currentCategory === 'indian' || currentCategory === 'healthy'
+                  ? recipes
+                  : recipes.filter(r => r.category === currentCategory);
+                const featuredRecipe = filteredRecipes[0];
+
+                return featuredRecipe && (
+                  <div style={{
+                    position: 'relative',
+                    width: '400px',
+                    height: '400px',
+                    borderRadius: '20px',
+                    overflow: 'hidden',
+                    boxShadow: '0 15px 40px rgba(0, 0, 0, 0.2)'
+                  }}>
+                    <img
+                      src={featuredRecipe.imageUrl}
+                      alt={categoryContent[selectedCategory as keyof typeof categoryContent].title}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      }}
+                    />
+                    <div style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                      padding: '30px 20px 20px',
+                      color: 'white'
+                    }}>
+                      <h4 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '5px' }}>
+                        {featuredRecipe.title}
+                      </h4>
+                      <p style={{ fontSize: '0.9rem', opacity: 0.9 }}>
+                        Featured {categoryContent[selectedCategory as keyof typeof categoryContent].title} Recipe
+                      </p>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           </div>
         </div>
       </section>
 
       {/* Recipe of the Week */}
-      {recipeOfTheWeek && !loading && (
+      {false && recipeOfTheWeek && !loading && (
         <section style={{
           padding: '80px 20px',
           background: 'var(--light-gray)',
@@ -275,6 +563,7 @@ export default function HomePage() {
       )}
 
       {/* How It Works Section */}
+      {false && (
       <section style={{ padding: '80px 20px', background: 'white' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
           <h2 className="section-title" style={{ marginBottom: '60px' }}>How It Works</h2>
@@ -361,8 +650,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* About Me Section */}
+      {false && (
       <section className="about">
         <div className="about-content">
           <h2 className="section-title">About Siri's Kitchen</h2>
@@ -381,9 +672,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Latest Recipes Section */}
-      {latestRecipes.length > 0 && !loading && (
+      {false && latestRecipes.length > 0 && !loading && (
         <section style={{ padding: '80px 20px', background: 'white' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
@@ -471,7 +763,7 @@ export default function HomePage() {
       )}
 
       {/* Seasonal/Trending Section */}
-      {recipes.length > 0 && !loading && (
+      {false && recipes.length > 0 && !loading && (
         <section style={{
           padding: '80px 20px',
           background: 'linear-gradient(135deg, var(--accent-blue), var(--fourth-color))',
@@ -525,7 +817,7 @@ export default function HomePage() {
       )}
 
       {/* Instagram-Style Photo Gallery */}
-      {recipes.length >= 6 && !loading && (
+      {false && recipes.length >= 6 && !loading && (
         <section style={{ padding: '80px 20px', background: 'var(--light-gray)' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
             <Camera size={50} style={{ margin: '0 auto 20px', color: 'var(--second-color)' }} />
@@ -592,6 +884,7 @@ export default function HomePage() {
       )}
 
       {/* Featured Recipes Section */}
+      {false && (
       <section className="featured">
         <h2 className="section-title">Featured Recipes</h2>
         {loading ? (
@@ -602,8 +895,10 @@ export default function HomePage() {
           <RecipeList recipes={recipes.slice(0, 4)} />
         )}
       </section>
+      )}
 
       {/* Recipe Categories Section */}
+      {false && (
       <section className="categories">
         <h2 className="section-title">Browse by Category</h2>
         <div className="category-grid">
@@ -637,18 +932,25 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+      )}
 
       {/* Footer */}
-      <footer className="footer">
-        <p style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-          <Sparkles size={18} /> Siri's Kitchen - Cooking with Passion <Sparkles size={18} />
+      <footer style={{
+        background: '#5D4E37',
+        color: 'white',
+        padding: '40px 20px',
+        textAlign: 'center'
+      }}>
+        <p style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", fontSize: '1rem' }}>
+          <Sparkles size={18} /> Sprinkle Herbs & Spices - Making Food Taste Better <Sparkles size={18} />
         </p>
-        <p style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-          Made with <Heart size={18} fill="currentColor" /> and lots of spices
+        <p style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginTop: '10px' }}>
+          Made with <Heart size={18} fill="currentColor" /> and finest quality spices
         </p>
       </footer>
 
       {/* Floating Action Button - Cook with Me */}
+      {false && (
       <button
         onClick={() => {
           document.querySelector('.featured')?.scrollIntoView({ behavior: 'smooth' });
@@ -684,9 +986,10 @@ export default function HomePage() {
       >
         <ChefHat size={28} />
       </button>
+      )}
 
       {/* Scroll to Top Button */}
-      {showScrollTop && (
+      {false && showScrollTop && (
         <button
           onClick={scrollToTop}
           style={{
