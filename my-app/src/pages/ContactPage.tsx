@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 import { Sparkles, Heart, Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import Footer from '../components/Footer';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -31,12 +32,12 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="app" style={{ background: '#FFF8EB' }}>
+    <div className="app" style={{ background: '#FFFCF9' }}>
       <Header />
 
       {/* Hero Section */}
       <section style={{
-        background: 'linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%)',
+        background: 'linear-gradient(135deg, #FFF5E6 0%, #FFE8D6 100%)',
         padding: '80px 60px',
         textAlign: 'center'
       }}>
@@ -47,7 +48,7 @@ export default function ContactPage() {
           <h1 style={{
             fontSize: '3.5rem',
             fontWeight: 700,
-            color: '#B85C3E',
+            color: '#FF8243',
             marginBottom: '20px',
             fontFamily: 'Georgia, serif'
           }}>
@@ -55,7 +56,7 @@ export default function ContactPage() {
           </h1>
           <p style={{
             fontSize: '1.3rem',
-            color: '#5D4E37',
+            color: '#2d2d2d',
             lineHeight: 1.6
           }}>
             We'd love to hear from you! Whether you have a question about recipes, feedback, or just want to say hello.
@@ -111,7 +112,7 @@ export default function ContactPage() {
                 <div style={{
                   width: '50px',
                   height: '50px',
-                  background: '#B85C3E',
+                  background: '#FF8243',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -135,7 +136,7 @@ export default function ContactPage() {
                     lineHeight: 1.6
                   }}>
                     <a href="mailto:hello@culinaria.com" style={{
-                      color: '#B85C3E',
+                      color: '#FF8243',
                       textDecoration: 'none'
                     }}>
                       hello@culinaria.com
@@ -147,7 +148,7 @@ export default function ContactPage() {
                     lineHeight: 1.6
                   }}>
                     <a href="mailto:support@culinaria.com" style={{
-                      color: '#B85C3E',
+                      color: '#FF8243',
                       textDecoration: 'none'
                     }}>
                       support@culinaria.com
@@ -165,7 +166,7 @@ export default function ContactPage() {
                 <div style={{
                   width: '50px',
                   height: '50px',
-                  background: '#B85C3E',
+                  background: '#FF8243',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -189,7 +190,7 @@ export default function ContactPage() {
                     lineHeight: 1.6
                   }}>
                     <a href="tel:+11234567890" style={{
-                      color: '#B85C3E',
+                      color: '#FF8243',
                       textDecoration: 'none'
                     }}>
                       +1 (123) 456-7890
@@ -214,7 +215,7 @@ export default function ContactPage() {
                 <div style={{
                   width: '50px',
                   height: '50px',
-                  background: '#B85C3E',
+                  background: '#FF8243',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -253,7 +254,7 @@ export default function ContactPage() {
                 <div style={{
                   width: '50px',
                   height: '50px',
-                  background: '#B85C3E',
+                  background: '#FF8243',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -287,7 +288,7 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <div style={{
-            background: '#FFF8EB',
+            background: '#FFFCF9',
             padding: '40px',
             borderRadius: '15px',
             boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
@@ -335,14 +336,14 @@ export default function ContactPage() {
                     style={{
                       width: '100%',
                       padding: '12px 15px',
-                      border: '2px solid #E8D7C3',
+                      border: '2px solid #FFE8D6',
                       borderRadius: '8px',
                       fontSize: '1rem',
                       outline: 'none',
                       transition: 'border-color 0.3s ease'
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#B85C3E'}
-                    onBlur={(e) => e.target.style.borderColor = '#E8D7C3'}
+                    onFocus={(e) => e.target.style.borderColor = '#FF8243'}
+                    onBlur={(e) => e.target.style.borderColor = '#FFE8D6'}
                   />
                 </div>
 
@@ -365,14 +366,14 @@ export default function ContactPage() {
                     style={{
                       width: '100%',
                       padding: '12px 15px',
-                      border: '2px solid #E8D7C3',
+                      border: '2px solid #FFE8D6',
                       borderRadius: '8px',
                       fontSize: '1rem',
                       outline: 'none',
                       transition: 'border-color 0.3s ease'
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#B85C3E'}
-                    onBlur={(e) => e.target.style.borderColor = '#E8D7C3'}
+                    onFocus={(e) => e.target.style.borderColor = '#FF8243'}
+                    onBlur={(e) => e.target.style.borderColor = '#FFE8D6'}
                   />
                 </div>
 
@@ -395,14 +396,14 @@ export default function ContactPage() {
                     style={{
                       width: '100%',
                       padding: '12px 15px',
-                      border: '2px solid #E8D7C3',
+                      border: '2px solid #FFE8D6',
                       borderRadius: '8px',
                       fontSize: '1rem',
                       outline: 'none',
                       transition: 'border-color 0.3s ease'
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#B85C3E'}
-                    onBlur={(e) => e.target.style.borderColor = '#E8D7C3'}
+                    onFocus={(e) => e.target.style.borderColor = '#FF8243'}
+                    onBlur={(e) => e.target.style.borderColor = '#FFE8D6'}
                   />
                 </div>
 
@@ -425,7 +426,7 @@ export default function ContactPage() {
                     style={{
                       width: '100%',
                       padding: '12px 15px',
-                      border: '2px solid #E8D7C3',
+                      border: '2px solid #FFE8D6',
                       borderRadius: '8px',
                       fontSize: '1rem',
                       outline: 'none',
@@ -433,8 +434,8 @@ export default function ContactPage() {
                       fontFamily: 'inherit',
                       transition: 'border-color 0.3s ease'
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#B85C3E'}
-                    onBlur={(e) => e.target.style.borderColor = '#E8D7C3'}
+                    onFocus={(e) => e.target.style.borderColor = '#FF8243'}
+                    onBlur={(e) => e.target.style.borderColor = '#FFE8D6'}
                   />
                 </div>
 
@@ -443,7 +444,7 @@ export default function ContactPage() {
                   style={{
                     width: '100%',
                     padding: '14px',
-                    background: '#B85C3E',
+                    background: '#FF8243',
                     color: 'white',
                     border: 'none',
                     borderRadius: '8px',
@@ -456,8 +457,8 @@ export default function ContactPage() {
                     gap: '10px',
                     transition: 'background 0.3s ease'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = '#8B4513'}
-                  onMouseLeave={(e) => e.currentTarget.style.background = '#B85C3E'}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#E66B30'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#FF8243'}
                 >
                   <Send size={20} />
                   Send Message
@@ -471,7 +472,7 @@ export default function ContactPage() {
       {/* FAQ Section */}
       <section style={{
         padding: '80px 60px',
-        background: 'linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%)'
+        background: 'linear-gradient(135deg, #FFF5E6 0%, #FFE8D6 100%)'
       }}>
         <div style={{
           maxWidth: '1000px',
@@ -502,7 +503,7 @@ export default function ContactPage() {
               <h3 style={{
                 fontSize: '1.3rem',
                 fontWeight: 700,
-                color: '#B85C3E',
+                color: '#FF8243',
                 marginBottom: '15px'
               }}>
                 How can I submit my own recipe?
@@ -525,7 +526,7 @@ export default function ContactPage() {
               <h3 style={{
                 fontSize: '1.3rem',
                 fontWeight: 700,
-                color: '#B85C3E',
+                color: '#FF8243',
                 marginBottom: '15px'
               }}>
                 Can I request a specific recipe?
@@ -548,7 +549,7 @@ export default function ContactPage() {
               <h3 style={{
                 fontSize: '1.3rem',
                 fontWeight: 700,
-                color: '#B85C3E',
+                color: '#FF8243',
                 marginBottom: '15px'
               }}>
                 Do you offer cooking classes?
@@ -565,20 +566,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer style={{
-        background: '#5D4E37',
-        color: 'white',
-        padding: '40px 20px',
-        textAlign: 'center'
-      }}>
-        <p style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", fontSize: '1rem' }}>
-          <Sparkles size={18} /> Culinaria Fine Foods & Recipes - Making Food Taste Better <Sparkles size={18} />
-        </p>
-        <p style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginTop: '10px' }}>
-          Made with <Heart size={18} fill="currentColor" /> and finest quality ingredients
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }

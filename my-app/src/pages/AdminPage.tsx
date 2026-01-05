@@ -7,6 +7,7 @@ import type { CreateRecipeInput } from "../services/api";
 import * as api from "../services/api";
 import { LogOut } from "lucide-react";
 import './AdminPage.css';
+import Footer from "../components/Footer";
 
 export default function AdminPage() {
   const [searchParams] = useSearchParams();
@@ -181,6 +182,7 @@ export default function AdminPage() {
           )}
         </div>
       </section>
+      <div><Footer></Footer></div>
     </div>
   );
 }

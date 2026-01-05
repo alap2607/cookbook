@@ -3,6 +3,7 @@ import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Lock, AlertCircle, Eye, EyeOff } from "lucide-react";
 import './LoginPage.css';
+import Footer from "../components/Footer";
 
 export default function LoginPage() {
   const [password, setPassword] = useState("");
@@ -90,7 +91,7 @@ export default function LoginPage() {
               className="btn-primary login-submit-button"
               disabled={loading}
               style={{
-                background: loading ? "#D4A373" : "#B85C3E"
+                background: loading ? "#F5D5CC" : "#E8BDB1"
               }}
             >
               {loading ? "Logging in..." : "Login"}
@@ -104,6 +105,7 @@ export default function LoginPage() {
           </form>
         </div>
       </section>
+      <div><Footer /></div>
     </div>
   );
 }

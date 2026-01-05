@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useRecipe } from '../hooks/useRecipes';
 import RecipeDetail from '../components/RecipeDetail';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function RecipeDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -40,4 +41,5 @@ export default function RecipeDetailPage() {
       <RecipeDetail recipe={recipe} />
     </div>
   );
+  <div><Footer /></div>
 }

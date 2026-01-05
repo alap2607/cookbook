@@ -1,28 +1,28 @@
-/* Warm Brown/Earthy Palette Theme */
+/* Tastywala Orange/Cream Palette Theme */
 :root {
-  /* Base colors - Brown/Earthy palette */
-  --first-color: #B85C3E;   /* Warm brown - Primary brand color */
-  --second-color: #8B4513;  /* Saddle brown - Dark accent */
-  --third-color: #5D4E37;   /* Dark brown - Deep accent */
-  --fourth-color: #D4A373;  /* Tan - Light accent */
+  /* Base colors - Orange/Cream palette inspired by Tastywala */
+  --first-color: #FF8243;   /* Primary orange - Main brand color */
+  --second-color: #FF9E6B;  /* Light orange - Hover state */
+  --third-color: #2d2d2d;   /* Dark text */
+  --fourth-color: #FFF5E6;  /* Cream background */
 
   /* Mapped application colors */
-  --primary-color: #B85C3E;
-  --primary-dark: #8B4513;
-  --primary-light: #D4A373;
+  --primary-color: #FF8243;
+  --primary-dark: #E66B30;
+  --primary-light: #FF9E6B;
   --accent-brown: #5D4E37;
-  --accent-tan: #E8D7C3;
-  --accent-beige: #FFF8EB;
+  --accent-tan: #FFF5E6;
+  --accent-beige: #FFF8F0;
   --white: #FFFFFF;
-  --light-gray: #FFF8EB;
-  --medium-gray: #e8e8e8;
+  --light-gray: #FFF8F0;
+  --medium-gray: #F0E6D8;
   --dark-text: #2d2d2d;
   --soft-black: #3d3d3d;
 
   /* Legacy color variables for compatibility */
-  --primary-red: #B85C3E;
-  --dark-red: #8B4513;
-  --light-red: #D4A373;
+  --primary-red: #FF8243;
+  --dark-red: #E66B30;
+  --light-red: #FF9E6B;
 }
 
 * {
@@ -621,41 +621,47 @@
 .recipe-actions {
   display: flex;
   gap: 15px;
-  justify-content: center;
+  justify-content: left;
+  margin-bottom: 30px;
 }
 
 /* Buttons */
 .btn-primary, .btn-secondary {
   padding: 12px 30px;
-  border-radius: 25px;
-  font-size: 1rem;
+  border-radius: 30px;
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
-  border: none;
+  border: 2px solid transparent;
   cursor: pointer;
 }
 
 .btn-primary {
-  background-color: var(--primary-red);
+  background-color: var(--primary-color);
   color: white;
+  border-color: var(--primary-color);
 }
 
 .btn-primary:hover {
-  background-color: var(--dark-red);
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(220, 20, 60, 0.3);
+  box-shadow: 0 5px 15px rgba(255, 130, 67, 0.3);
 }
 
 .btn-secondary {
-  background-color: var(--medium-gray);
-  color: var(--dark-text);
+  background-color: transparent;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .btn-secondary:hover {
-  background-color: #DEE2E6;
+  background-color: var(--primary-color);
+  color: white;
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 130, 67, 0.2);
 }
 
 /* Loading and Error States */

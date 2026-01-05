@@ -38,7 +38,7 @@ export default function SearchBar({ value, onChange, placeholder = "Search recip
           left: '15px',
           top: '50%',
           transform: 'translateY(-50%)',
-          color: '#5D4E37'
+          color: '#666'
         }}
       />
       <input
@@ -49,14 +49,14 @@ export default function SearchBar({ value, onChange, placeholder = "Search recip
         style={{
           width: '100%',
           padding: '12px 45px',
-          border: '2px solid #E8D7C3',
+          border: '2px solid #FFE8D6',
           borderRadius: '25px',
           fontSize: '1rem',
           outline: 'none',
           transition: 'border-color 0.3s ease'
         }}
-        onFocus={(e) => e.currentTarget.style.borderColor = '#B85C3E'}
-        onBlur={(e) => e.currentTarget.style.borderColor = '#E8D7C3'}
+        onFocus={(e) => e.currentTarget.style.borderColor = '#FF8243'}
+        onBlur={(e) => e.currentTarget.style.borderColor = '#FFE8D6'}
       />
       {localValue && (
         <button
@@ -75,7 +75,7 @@ export default function SearchBar({ value, onChange, placeholder = "Search recip
           }}
           title="Clear search"
         >
-          <X size={20} color="#5D4E37" />
+          <X size={20} color="#666" />
         </button>
       )}
     </div>

@@ -77,9 +77,7 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
     if (formData.ingredients.length === 0) {
       newErrors.ingredients = "At least one ingredient required";
     } else {
-      const hasInvalidIngredient = formData.ingredients.some(
-        ing => !ing.item || !ing.unit || ing.quantity <= 0
-      );
+      const hasInvalidIngredient = formData.ingredients.some((ing) => !ing.item || !ing.unit || ing.quantity <= 0);
       if (hasInvalidIngredient) {
         newErrors.ingredients = "All ingredients must have item, quantity, and unit";
       }
@@ -88,9 +86,7 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
     if (formData.instructions.length === 0) {
       newErrors.instructions = "At least one instruction required";
     } else {
-      const hasEmptyInstruction = formData.instructions.some(
-        inst => !inst || inst.trim().length === 0
-      );
+      const hasEmptyInstruction = formData.instructions.some((inst) => !inst || inst.trim().length === 0);
       if (hasEmptyInstruction) {
         newErrors.instructions = "All instructions must be non-empty";
       }
@@ -162,13 +158,13 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
       <div className="form-group">
         <label>Title *</label>
         <input type="text" required value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
-        {errors.title && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.title}</div>}
+        {errors.title && <div style={{ color: "#E74C3C", fontSize: "0.85rem", marginTop: "5px" }}>{errors.title}</div>}
       </div>
 
       <div className="form-group">
         <label>Description *</label>
         <textarea required value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} />
-        {errors.description && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.description}</div>}
+        {errors.description && <div style={{ color: "#E74C3C", fontSize: "0.85rem", marginTop: "5px" }}>{errors.description}</div>}
       </div>
 
       <div className="form-row">
@@ -184,14 +180,8 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
 
         <div className="form-group">
           <label>Cuisine *</label>
-          <input
-            type="text"
-            required
-            value={formData.cusine}
-            onChange={(e) => setFormData({ ...formData, cusine: e.target.value })}
-            placeholder="e.g., Indian, Italian, Chinese"
-          />
-          {errors.cusine && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.cusine}</div>}
+          <input type="text" required value={formData.cusine} onChange={(e) => setFormData({ ...formData, cusine: e.target.value })} placeholder="e.g., Indian, Italian, Chinese" />
+          {errors.cusine && <div style={{ color: "#E74C3C", fontSize: "0.85rem", marginTop: "5px" }}>{errors.cusine}</div>}
         </div>
       </div>
 
@@ -199,20 +189,20 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
         <div className="form-group">
           <label>Cook Time (minutes) *</label>
           <input type="number" required min="0" value={formData.cookTime} onChange={(e) => setFormData({ ...formData, cookTime: parseInt(e.target.value) })} />
-          {errors.cookTime && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.cookTime}</div>}
+          {errors.cookTime && <div style={{ color: "#E74C3C", fontSize: "0.85rem", marginTop: "5px" }}>{errors.cookTime}</div>}
         </div>
 
         <div className="form-group">
           <label>Servings *</label>
           <input type="number" required min="1" value={formData.servings} onChange={(e) => setFormData({ ...formData, servings: parseInt(e.target.value) })} />
-          {errors.servings && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.servings}</div>}
+          {errors.servings && <div style={{ color: "#E74C3C", fontSize: "0.85rem", marginTop: "5px" }}>{errors.servings}</div>}
         </div>
       </div>
 
       <div className="form-group">
         <label>Image URL *</label>
         <input type="url" required value={formData.imageUrl} onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })} />
-        {errors.imageUrl && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.imageUrl}</div>}
+        {errors.imageUrl && <div style={{ color: "#E74C3C", fontSize: "0.85rem", marginTop: "5px" }}>{errors.imageUrl}</div>}
       </div>
 
       <div className="form-section">
@@ -227,7 +217,7 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
             </button>
           </div>
         ))}
-        {errors.ingredients && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.ingredients}</div>}
+        {errors.ingredients && <div style={{ color: "#E74C3C", fontSize: "0.85rem", marginTop: "5px" }}>{errors.ingredients}</div>}
         <button type="button" onClick={addIngredient} className="btn-secondary">
           Add Ingredient
         </button>
@@ -243,7 +233,7 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
             </button>
           </div>
         ))}
-        {errors.instructions && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.instructions}</div>}
+        {errors.instructions && <div style={{ color: "#E74C3C", fontSize: "0.85rem", marginTop: "5px" }}>{errors.instructions}</div>}
         <button type="button" onClick={addInstruction} className="btn-secondary">
           Add Step
         </button>

@@ -7,7 +7,7 @@ import './MediaPage.css';
 
 export default function MediaPage() {
   const { recipes, loading, error } = useRecipes();
-  const [selectedImage, setSelectedImage] = useState<{ url: string; title: string; id: number } | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{ url: string; title: string; id: string } | null>(null);
 
   if (loading) {
     return (

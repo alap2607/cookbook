@@ -1,60 +1,234 @@
 /* RecipesPage Styles */
 
 .recipes-page {
+  background: #FFFCF9;
+  min-height: 100vh;
+}
+
+/* Menu Section */
+.recipes-menu-section {
+  padding: 60px 60px 80px;
   background: white;
 }
 
-/* Hero Banner */
-.recipes-hero {
-  background: linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%);
-  padding: 60px 20px;
+.recipes-menu-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.recipes-menu-title {
+  font-family: 'Georgia', serif;
+  font-size: 2.5rem;
+  color: #2d2d2d;
+  margin-bottom: 40px;
   text-align: center;
+  font-weight: 700;
 }
 
-.recipes-hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.recipes-hero-title {
-  font-family: Georgia, serif;
-  font-size: 3rem;
-  color: #5D4E37;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-.recipes-hero-description {
-  font-size: 1.1rem;
-  color: #5D4E37;
-  opacity: 0.9;
-  line-height: 1.6;
-}
-
-/* Category Filter Tabs */
-.recipes-filter-section {
-  background: #FFF8EB;
-  padding: 30px 20px;
-  border-bottom: 1px solid #E8D7C3;
-}
-
-.recipes-filter-container {
-  max-width: 1200px;
-  margin: 0 auto;
+/* Category Pills */
+.recipes-category-pills {
   display: flex;
-  gap: 15px;
   justify-content: center;
+  gap: 15px;
+  margin-bottom: 60px;
   flex-wrap: wrap;
 }
 
-/* Recipes Grid */
-.recipes-grid-section {
-  padding: 50px 20px;
-  min-height: 60vh;
-  background: white;
+.recipe-pill {
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #FF8243;
+  background: transparent;
+  color: #FF8243;
 }
 
-.recipes-grid-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.recipe-pill.active {
+  background: #FF8243;
+  color: white;
+  border-color: #FF8243;
+}
+
+.recipe-pill:hover {
+  background: #FF8243;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 130, 67, 0.2);
+}
+
+/* Recipes Grid */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.recipe-menu-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.recipe-menu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-menu-image-wrapper {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.recipe-menu-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.recipe-menu-card:hover .recipe-menu-image {
+  transform: scale(1.1);
+}
+
+.recipe-menu-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.recipe-menu-meta {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.recipe-menu-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.recipe-menu-reviews {
+  font-size: 0.85rem;
+  color: #666;
+  margin-left: 8px;
+}
+
+.recipe-menu-button {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #FF8243;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #FF8243;
+}
+
+.recipe-menu-button:hover {
+  background: #FF9E6B;
+  border-color: #FF9E6B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 130, 67, 0.3);
+}
+
+/* View All Section */
+.recipes-view-all {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.recipes-view-all-button {
+  display: inline-block;
+  padding: 14px 40px;
+  background: transparent;
+  color: #FF8243;
+  border: 2px solid #FF8243;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.recipes-view-all-button:hover {
+  background: #FF8243;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 130, 67, 0.2);
+}
+
+/* Loading and Error States */
+.loading,
+.error {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.2rem;
+}
+
+.loading {
+  color: #FF8243;
+}
+
+.error {
+  color: #E74C3C;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .recipes-menu-section {
+    padding: 50px 30px 70px;
+  }
+
+  .recipes-menu-title {
+    font-size: 2rem;
+  }
+
+  .recipes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .recipes-menu-section {
+    padding: 40px 20px 60px;
+  }
+
+  .recipes-menu-title {
+    font-size: 1.8rem;
+  }
+
+  .recipes-category-pills {
+    gap: 10px;
+  }
+
+  .recipe-pill {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
+  .recipes-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
 }

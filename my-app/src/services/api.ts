@@ -6,6 +6,7 @@ export interface Ingredient {
 }
 
 export interface Recipe {
+  temperingingredients: any;
   id: string;
   title: string;
   description: string;
@@ -22,6 +23,7 @@ export interface Recipe {
 }
 
 export interface CreateRecipeInput {
+  temperingingeridents: any;
   title: string;
   description: string;
   category: 'vegetarian' | 'chicken' | 'quick' | 'spicy';

@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Search, ShoppingCart } from 'lucide-react';
 import './Header.css';
 
 export default function Header() {
@@ -20,9 +19,6 @@ export default function Header() {
           <h1 className="header-logo-title">
             Culinaria
           </h1>
-          <p className="header-logo-subtitle">
-            Fine Foods & Recipes
-          </p>
         </Link>
 
         <nav className="header-nav">
@@ -33,13 +29,17 @@ export default function Header() {
             About Us
           </Link>
           <Link to="/recipes" className={`header-link ${isActive('/recipes') ? 'active' : ''}`}>
-            Recipes
+            Menu
           </Link>
           <Link to="/contact" className={`header-link ${isActive('/contact') ? 'active' : ''}`}>
             Contact
           </Link>
-          <Search size={20} color="#5D4E37" className="header-icon" />
-          <ShoppingCart size={20} color="#5D4E37" className="header-icon" />
+          <Link to="/media" className={`header-link ${isActive('/media') ? 'active' : ''}`}>
+            Reviews
+          </Link>
+          <Link to="/contact" className="header-cta-button">
+            Food Menu
+          </Link>
         </nav>
       </div>
     </header>

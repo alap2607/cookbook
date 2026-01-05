@@ -1,12 +1,12 @@
 /* MediaPage Styles */
 
 .media-page {
-  background: #FFF8EB;
+  background: #FFFCF9;
 }
 
 /* Hero Section */
 .media-hero {
-  background: linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%);
+  background: linear-gradient(135deg, #FFF5E6 0%, #FFE8D6 100%);
   padding: 80px 60px;
   text-align: center;
 }
@@ -19,14 +19,14 @@
 .media-hero-title {
   font-size: 3.5rem;
   font-weight: 700;
-  color: #B85C3E;
+  color: #FF8243;
   margin-bottom: 20px;
   font-family: Georgia, serif;
 }
 
 .media-hero-description {
   font-size: 1.3rem;
-  color: #5D4E37;
+  color: #2d2d2d;
   line-height: 1.6;
 }
 
@@ -175,14 +175,14 @@
 .media-lightbox-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #B85C3E;
+  color: #FF8243;
   margin-bottom: 10px;
 }
 
 .media-lightbox-link {
   display: inline-block;
   padding: 10px 25px;
-  background: #B85C3E;
+  background: #FF8243;
   color: white;
   border-radius: 8px;
   text-decoration: none;
@@ -192,12 +192,12 @@
 }
 
 .media-lightbox-link:hover {
-  background: #8B4513;
+  background: #FF9E6B;
 }
 
 /* Footer */
 .media-footer {
-  background: #5D4E37;
+  background: #FF8243;
   color: white;
   padding: 40px 20px;
   text-align: center;
@@ -228,7 +228,7 @@
 }
 
 .media-loading-container {
-  color: #B85C3E;
+  color: #FF8243;
 }
 
 .media-error-container {
