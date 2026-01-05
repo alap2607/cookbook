@@ -1,0 +1,130 @@
+/* LoginPage Styles */
+
+.login-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%);
+}
+
+.login-container {
+  max-width: 480px;
+  width: 100%;
+  background: var(--white);
+  padding: 50px 45px;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(93, 78, 55, 0.2);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.login-icon-wrapper {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #B85C3E 0%, #8B4513 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  box-shadow: 0 8px 24px rgba(184, 92, 62, 0.3);
+}
+
+.login-title {
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  color: #5D4E37;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.login-description {
+  color: #5D4E37;
+  opacity: 0.8;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.login-form {
+  /* Form styles are already handled by form-group class */
+}
+
+.login-password-wrapper {
+  position: relative;
+}
+
+.login-password-input {
+  padding-right: 45px;
+}
+
+.login-password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-text);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.login-password-toggle:hover {
+  opacity: 1;
+}
+
+.login-error {
+  background: #FFF8EB;
+  border: 2px solid #B85C3E;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #8B4513;
+}
+
+.login-error-text {
+  font-size: 0.95rem;
+}
+
+.login-submit-button {
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 14px 30px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.login-submit-button:disabled {
+  background: #D4A373;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.login-back-link-wrapper {
+  text-align: center;
+}
+
+.login-back-link {
+  color: #B85C3E;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.login-back-link:hover {
+  color: #8B4513;
+}

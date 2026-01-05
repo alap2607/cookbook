@@ -1,8 +1,8 @@
 import { useState, type FormEvent } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import Header from "../components/Header";
 import { Lock, AlertCircle, Eye, EyeOff } from "lucide-react";
+import './LoginPage.css';
 
 export default function LoginPage() {
   const [password, setPassword] = useState("");
@@ -38,58 +38,24 @@ export default function LoginPage() {
 
   return (
     <div className="app">
-      <Header />
-      <section
-        style={{
-          minHeight: "80vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "40px 20px",
-          background: "var(--light-gray)"
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "450px",
-            width: "100%",
-            background: "var(--white)",
-            padding: "50px 40px",
-            borderRadius: "15px",
-            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)"
-          }}
-        >
-          <div style={{ textAlign: "center", marginBottom: "35px" }}>
-            <div
-              style={{
-                width: "80px",
-                height: "80px",
-                background: "linear-gradient(135deg, var(--primary-color), var(--primary-dark))",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 20px"
-              }}
-            >
-              <Lock size={40} color="white" />
+      <section className="login-section">
+        <div className="login-container">
+          <div className="login-header">
+            <div className="login-icon-wrapper">
+              <Lock size={45} color="white" strokeWidth={2.5} />
             </div>
-            <h1
-              style={{
-                fontSize: "2rem",
-                color: "var(--primary-color)",
-                marginBottom: "10px"
-              }}
-            >
+            <h1 className="login-title">
               Admin Login
             </h1>
-            <p style={{ color: "var(--dark-text)", opacity: 0.7 }}>Enter password to access admin panel</p>
+            <p className="login-description">
+              Enter your password to access the admin panel
+            </p>
           </div>
 
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <div style={{ position: "relative" }}>
+              <div className="login-password-wrapper">
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
@@ -99,29 +65,12 @@ export default function LoginPage() {
                   required
                   autoFocus
                   disabled={loading}
-                  style={{ paddingRight: "45px" }}
+                  className="login-password-input"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  style={{
-                    position: "absolute",
-                    right: "12px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    padding: "5px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--dark-text)",
-                    opacity: 0.6,
-                    transition: "opacity 0.2s"
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.6")}
+                  className="login-password-toggle"
                   aria-label={showPassword ? "Hide password" : "Show password"}
                 >
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -130,30 +79,25 @@ export default function LoginPage() {
             </div>
 
             {error && (
-              <div
-                style={{
-                  background: "#fff0f0",
-                  border: "2px solid var(--primary-color)",
-                  padding: "12px",
-                  borderRadius: "8px",
-                  marginBottom: "20px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  color: "var(--primary-dark)"
-                }}
-              >
-                <AlertCircle size={20} />
-                <span>{error}</span>
+              <div className="login-error">
+                <AlertCircle size={22} strokeWidth={2.5} />
+                <span className="login-error-text">{error}</span>
               </div>
             )}
 
-            <button type="submit" className="btn-primary" disabled={loading} style={{ width: "100%", marginBottom: "20px" }}>
+            <button
+              type="submit"
+              className="btn-primary login-submit-button"
+              disabled={loading}
+              style={{
+                background: loading ? "#D4A373" : "#B85C3E"
+              }}
+            >
               {loading ? "Logging in..." : "Login"}
             </button>
 
-            <div style={{ textAlign: "center" }}>
-              <Link to="/" style={{ color: "var(--primary-color)", textDecoration: "none" }}>
+            <div className="login-back-link-wrapper">
+              <Link to="/" className="login-back-link">
                 ← Back to Home
               </Link>
             </div>

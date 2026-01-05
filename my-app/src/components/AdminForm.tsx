@@ -12,6 +12,7 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
     title: "",
     description: "",
     category: "vegetarian",
+    cusine: "",
     cookTime: 0,
     servings: 1,
     imageUrl: "",
@@ -21,6 +22,7 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
   });
 
   const [submitting, setSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     if (recipe) {
@@ -28,6 +30,7 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
         title: recipe.title,
         description: recipe.description,
         category: recipe.category,
+        cusine: recipe.cusine,
         cookTime: recipe.cookTime,
         servings: recipe.servings,
         imageUrl: recipe.imageUrl,
@@ -38,8 +41,72 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
     }
   }, [recipe]);
 
+  const validateForm = (): boolean => {
+    const newErrors: Record<string, string> = {};
+
+    if (formData.title.length < 3 || formData.title.length > 100) {
+      newErrors.title = "Title must be 3-100 characters";
+    }
+
+    if (formData.description.length < 10) {
+      newErrors.description = "Description must be at least 10 characters";
+    }
+
+    if (formData.description.length > 500) {
+      newErrors.description = "Description must be less than 500 characters";
+    }
+
+    if (!formData.cusine || formData.cusine.trim().length === 0) {
+      newErrors.cusine = "Cuisine is required";
+    }
+
+    if (formData.cookTime <= 0 || formData.cookTime > 600) {
+      newErrors.cookTime = "Cook time must be 1-600 minutes";
+    }
+
+    if (formData.servings <= 0 || formData.servings > 20) {
+      newErrors.servings = "Servings must be 1-20";
+    }
+
+    try {
+      new URL(formData.imageUrl);
+    } catch {
+      newErrors.imageUrl = "Must be a valid URL";
+    }
+
+    if (formData.ingredients.length === 0) {
+      newErrors.ingredients = "At least one ingredient required";
+    } else {
+      const hasInvalidIngredient = formData.ingredients.some(
+        ing => !ing.item || !ing.unit || ing.quantity <= 0
+      );
+      if (hasInvalidIngredient) {
+        newErrors.ingredients = "All ingredients must have item, quantity, and unit";
+      }
+    }
+
+    if (formData.instructions.length === 0) {
+      newErrors.instructions = "At least one instruction required";
+    } else {
+      const hasEmptyInstruction = formData.instructions.some(
+        inst => !inst || inst.trim().length === 0
+      );
+      if (hasEmptyInstruction) {
+        newErrors.instructions = "All instructions must be non-empty";
+      }
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     setSubmitting(true);
     try {
       await onSubmit(formData);
@@ -95,11 +162,13 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
       <div className="form-group">
         <label>Title *</label>
         <input type="text" required value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
+        {errors.title && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.title}</div>}
       </div>
 
       <div className="form-group">
         <label>Description *</label>
         <textarea required value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} />
+        {errors.description && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.description}</div>}
       </div>
 
       <div className="form-row">
@@ -114,19 +183,36 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
         </div>
 
         <div className="form-group">
+          <label>Cuisine *</label>
+          <input
+            type="text"
+            required
+            value={formData.cusine}
+            onChange={(e) => setFormData({ ...formData, cusine: e.target.value })}
+            placeholder="e.g., Indian, Italian, Chinese"
+          />
+          {errors.cusine && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.cusine}</div>}
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="form-group">
           <label>Cook Time (minutes) *</label>
           <input type="number" required min="0" value={formData.cookTime} onChange={(e) => setFormData({ ...formData, cookTime: parseInt(e.target.value) })} />
+          {errors.cookTime && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.cookTime}</div>}
         </div>
 
         <div className="form-group">
           <label>Servings *</label>
           <input type="number" required min="1" value={formData.servings} onChange={(e) => setFormData({ ...formData, servings: parseInt(e.target.value) })} />
+          {errors.servings && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.servings}</div>}
         </div>
       </div>
 
       <div className="form-group">
         <label>Image URL *</label>
         <input type="url" required value={formData.imageUrl} onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })} />
+        {errors.imageUrl && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.imageUrl}</div>}
       </div>
 
       <div className="form-section">
@@ -141,6 +227,7 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
             </button>
           </div>
         ))}
+        {errors.ingredients && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.ingredients}</div>}
         <button type="button" onClick={addIngredient} className="btn-secondary">
           Add Ingredient
         </button>
@@ -156,6 +243,7 @@ export default function AdminForm({ recipe, onSubmit, onCancel }: AdminFormProps
             </button>
           </div>
         ))}
+        {errors.instructions && <div style={{ color: '#E74C3C', fontSize: '0.85rem', marginTop: '5px' }}>{errors.instructions}</div>}
         <button type="button" onClick={addInstruction} className="btn-secondary">
           Add Step
         </button>

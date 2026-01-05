@@ -1,28 +1,28 @@
-/* Vibrant Warm Palette Theme */
+/* Warm Brown/Earthy Palette Theme */
 :root {
-  /* Base colors from palette */
-  --first-color: #fd5959;   /* Coral/salmon - Primary brand color */
-  --second-color: #ff9c6d;  /* Orange/peach - Warm accent */
-  --third-color: #fcff82;   /* Bright yellow - Highlight accent */
-  --fourth-color: #afc5ff;  /* Light blue - Cool accent */
+  /* Base colors - Brown/Earthy palette */
+  --first-color: #B85C3E;   /* Warm brown - Primary brand color */
+  --second-color: #8B4513;  /* Saddle brown - Dark accent */
+  --third-color: #5D4E37;   /* Dark brown - Deep accent */
+  --fourth-color: #D4A373;  /* Tan - Light accent */
 
   /* Mapped application colors */
-  --primary-color: #fd5959;
-  --primary-dark: #e04545;
-  --primary-light: #ff9c6d;
-  --accent-orange: #ff9c6d;
-  --accent-yellow: #fcff82;
-  --accent-blue: #afc5ff;
+  --primary-color: #B85C3E;
+  --primary-dark: #8B4513;
+  --primary-light: #D4A373;
+  --accent-brown: #5D4E37;
+  --accent-tan: #E8D7C3;
+  --accent-beige: #FFF8EB;
   --white: #FFFFFF;
-  --light-gray: #fef9f5;
+  --light-gray: #FFF8EB;
   --medium-gray: #e8e8e8;
   --dark-text: #2d2d2d;
   --soft-black: #3d3d3d;
 
   /* Legacy color variables for compatibility */
-  --primary-red: #fd5959;
-  --dark-red: #e04545;
-  --light-red: #ff9c6d;
+  --primary-red: #B85C3E;
+  --dark-red: #8B4513;
+  --light-red: #D4A373;
 }
 
 * {
@@ -320,7 +320,7 @@
 
 .glass-category-badge {
   align-self: flex-start;
-  background: rgba(253, 89, 89, 0.15);
+  background: rgba(184, 92, 62, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: var(--primary-red);
@@ -329,7 +329,7 @@
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: capitalize;
-  border: 1px solid rgba(253, 89, 89, 0.2);
+  border: 1px solid rgba(184, 92, 62, 0.2);
 }
 
 /* Old recipe card styles for backward compatibility */

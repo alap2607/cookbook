@@ -1,0 +1,204 @@
+/* AdminPage Styles */
+
+/* Header Section */
+.admin-header-section {
+  background: linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%);
+  padding: 50px 20px;
+  border-bottom: 3px solid #B85C3E;
+}
+
+.admin-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.admin-header-info h1 {
+  font-family: Georgia, serif;
+  font-size: 2.5rem;
+  color: #5D4E37;
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.admin-header-info p {
+  font-size: 1rem;
+  color: #5D4E37;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.admin-header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.admin-add-button {
+  background: #B85C3E;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(184, 92, 62, 0.3);
+}
+
+.admin-logout-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Content Section */
+.admin-content-section {
+  padding: 50px 20px;
+  min-height: 60vh;
+  background: white;
+}
+
+.admin-content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Empty State */
+.admin-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: #FFF8EB;
+  border-radius: 15px;
+  border: 2px dashed #D4A373;
+}
+
+.admin-empty-state p {
+  font-size: 1.2rem;
+  color: #5D4E37;
+  margin-bottom: 20px;
+}
+
+.admin-empty-button {
+  background: #B85C3E;
+  padding: 12px 30px;
+}
+
+/* Table Container */
+.admin-table-container {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(93, 78, 55, 0.1);
+  border: 1px solid #E8D7C3;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table thead tr {
+  background: linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%);
+  border-bottom: 2px solid #B85C3E;
+}
+
+.admin-table th {
+  padding: 18px 20px;
+  text-align: left;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #5D4E37;
+}
+
+.admin-table tbody tr {
+  border-bottom: 1px solid #E8D7C3;
+  transition: background 0.2s ease;
+}
+
+.admin-table tbody tr:nth-child(even) {
+  background: #FFF8EB;
+}
+
+.admin-table tbody tr:hover {
+  background: #FFF8EB;
+}
+
+.admin-table td {
+  padding: 15px 20px;
+}
+
+.admin-recipe-image {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-recipe-title {
+  font-weight: 500;
+  color: #2d2d2d;
+}
+
+.admin-badge {
+  display: inline-block;
+  background: #B85C3E;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.admin-cook-time {
+  color: #5D4E37;
+  font-weight: 500;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-edit-button {
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.admin-delete-button {
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: #B85C3E;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-delete-button:hover {
+  background-color: #8B4513;
+  transform: translateY(-2px);
+}
+
+.admin-delete-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}

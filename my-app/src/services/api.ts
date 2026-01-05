@@ -10,6 +10,7 @@ export interface Recipe {
   title: string;
   description: string;
   category: 'vegetarian' | 'chicken' | 'quick' | 'spicy';
+  cusine: string;
   cookTime: number;
   servings: number;
   imageUrl: string;
@@ -24,6 +25,7 @@ export interface CreateRecipeInput {
   title: string;
   description: string;
   category: 'vegetarian' | 'chicken' | 'quick' | 'spicy';
+  cusine: string;
   cookTime: number;
   servings: number;
   imageUrl: string;
@@ -36,6 +38,7 @@ export interface UpdateRecipeInput {
   title?: string;
   description?: string;
   category?: 'vegetarian' | 'chicken' | 'quick' | 'spicy';
+  cusine?: string;
   cookTime?: number;
   servings?: number;
   imageUrl?: string;

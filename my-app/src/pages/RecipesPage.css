@@ -1,0 +1,60 @@
+/* RecipesPage Styles */
+
+.recipes-page {
+  background: white;
+}
+
+/* Hero Banner */
+.recipes-hero {
+  background: linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.recipes-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.recipes-hero-title {
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  color: #5D4E37;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.recipes-hero-description {
+  font-size: 1.1rem;
+  color: #5D4E37;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Category Filter Tabs */
+.recipes-filter-section {
+  background: #FFF8EB;
+  padding: 30px 20px;
+  border-bottom: 1px solid #E8D7C3;
+}
+
+.recipes-filter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Recipes Grid */
+.recipes-grid-section {
+  padding: 50px 20px;
+  min-height: 60vh;
+  background: white;
+}
+
+.recipes-grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}

@@ -1,0 +1,246 @@
+/* MediaPage Styles */
+
+.media-page {
+  background: #FFF8EB;
+}
+
+/* Hero Section */
+.media-hero {
+  background: linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%);
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.media-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.media-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #B85C3E;
+  margin-bottom: 20px;
+  font-family: Georgia, serif;
+}
+
+.media-hero-description {
+  font-size: 1.3rem;
+  color: #5D4E37;
+  line-height: 1.6;
+}
+
+/* Photo Gallery */
+.media-gallery-section {
+  padding: 80px 60px;
+  background: white;
+}
+
+.media-gallery-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.media-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.media-gallery-item {
+  position: relative;
+  cursor: pointer;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.media-gallery-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.media-gallery-image-wrapper {
+  padding-bottom: 75%;
+  position: relative;
+  overflow: hidden;
+}
+
+.media-gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.media-gallery-item:hover .media-gallery-image {
+  transform: scale(1.1);
+}
+
+.media-gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 30px 20px 15px;
+  color: white;
+}
+
+.media-gallery-recipe-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.media-gallery-recipe-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.media-gallery-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Lightbox Modal */
+.media-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.media-lightbox-close-button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.media-lightbox-close-button:hover {
+  transform: scale(1.1);
+}
+
+.media-lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.media-lightbox-image {
+  max-width: 100%;
+  max-height: calc(90vh - 100px);
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.media-lightbox-info {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.media-lightbox-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #B85C3E;
+  margin-bottom: 10px;
+}
+
+.media-lightbox-link {
+  display: inline-block;
+  padding: 10px 25px;
+  background: #B85C3E;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.media-lightbox-link:hover {
+  background: #8B4513;
+}
+
+/* Footer */
+.media-footer {
+  background: #5D4E37;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.media-footer-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+.media-footer-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Loading and Error States */
+.media-loading-container,
+.media-error-container {
+  padding: 100px 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.media-loading-container {
+  color: #B85C3E;
+}
+
+.media-error-container {
+  color: #E74C3C;
+  font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

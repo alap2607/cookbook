@@ -1,0 +1,372 @@
+/* AboutPage Styles */
+
+.about-page {
+  background: #FFF8EB;
+}
+
+/* Hero Section */
+.about-hero {
+  background: linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%);
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.about-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #B85C3E;
+  margin-bottom: 20px;
+  font-family: Georgia, serif;
+}
+
+.about-hero-description {
+  font-size: 1.3rem;
+  color: #5D4E37;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* About This Project Section */
+.about-project-section {
+  padding: 80px 60px;
+  background: white;
+}
+
+.about-section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-bottom: 30px;
+  font-family: Georgia, serif;
+  text-align: center;
+}
+
+.about-section-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.about-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.about-feature-card {
+  text-align: center;
+  padding: 30px;
+  background: #FFF8EB;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.about-feature-icon {
+  width: 70px;
+  height: 70px;
+  background: #B85C3E;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.about-feature-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-bottom: 15px;
+}
+
+.about-feature-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Why This Cookbook Section */
+.why-cookbook-section {
+  padding: 80px 60px;
+  background: linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%);
+}
+
+.why-cookbook-description {
+  font-size: 1.1rem;
+  color: #5D4E37;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 50px;
+}
+
+.why-cookbook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.why-cookbook-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.why-cookbook-emoji {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.why-cookbook-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #B85C3E;
+  margin-bottom: 10px;
+}
+
+.why-cookbook-card-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Features Section */
+.features-section {
+  padding: 80px 60px;
+  background: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.feature-item {
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+  background: #FFF8EB;
+  border-radius: 15px;
+}
+
+.feature-icon-box {
+  width: 60px;
+  height: 60px;
+  background: #B85C3E;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-content-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+}
+
+.feature-content-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Who's This For Section */
+.whos-this-for-section {
+  padding: 80px 60px;
+  background: linear-gradient(135deg, #E8D7C3 0%, #D4C4B0 100%);
+  text-align: center;
+}
+
+.whos-this-for-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.whos-this-for-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.whos-this-for-emoji {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.whos-this-for-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #B85C3E;
+  margin-bottom: 15px;
+}
+
+.whos-this-for-card-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Fun Facts Section */
+.fun-facts-section {
+  padding: 80px 60px;
+  background: white;
+}
+
+.fun-facts-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.fun-facts-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 50px;
+  font-style: italic;
+}
+
+.fun-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  text-align: left;
+}
+
+.fun-fact-card {
+  padding: 30px;
+  background: #FFF8EB;
+  border-radius: 15px;
+  border-left: 5px solid #B85C3E;
+}
+
+.fun-fact-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.fun-fact-text {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Call to Action Section */
+.cta-section {
+  padding: 80px 60px;
+  background: linear-gradient(135deg, #B85C3E 0%, #8B4513 100%);
+  color: white;
+  text-align: center;
+}
+
+.cta-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  font-family: Georgia, serif;
+}
+
+.cta-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
+
+.cta-subdescription {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: white;
+  color: #B85C3E;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+.cta-tagline {
+  margin-top: 40px;
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+/* Footer */
+.about-footer {
+  background: #5D4E37;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.about-footer-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+.about-footer-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.about-footer-note {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-style: italic;
+}
