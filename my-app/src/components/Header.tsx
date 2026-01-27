@@ -1,13 +1,13 @@
-import { Link, useLocation } from 'react-router-dom';
-import './Header.css';
+import { Link, useLocation } from "react-router-dom";
+import "./Header.css";
 
 export default function Header() {
   const location = useLocation();
   const currentPath = location.pathname;
 
   const isActive = (path: string) => {
-    if (path === '/') {
-      return currentPath === '/';
+    if (path === "/") {
+      return currentPath === "/";
     }
     return currentPath.startsWith(path);
   };
@@ -16,30 +16,29 @@ export default function Header() {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="header-logo">
-          <h1 className="header-logo-title">
-            Culinaria
-          </h1>
+          <h1 className="header-logo-title">Culinaria</h1>
         </Link>
 
         <nav className="header-nav">
-          <Link to="/" className={`header-link ${isActive('/') ? 'active' : ''}`}>
+          <Link to="/" className={`header-link ${isActive("/") ? "active" : ""}`}>
             Home
           </Link>
-          <Link to="/about" className={`header-link ${isActive('/about') ? 'active' : ''}`}>
+          <Link to="/about" className={`header-link ${isActive("/about") ? "active" : ""}`}>
             About Us
           </Link>
-          <Link to="/recipes" className={`header-link ${isActive('/recipes') ? 'active' : ''}`}>
-            Menu
+          <Link to="/recipes" className={`header-link ${isActive("/recipes") ? "active" : ""}`}>
+            Recipes
           </Link>
-          <Link to="/contact" className={`header-link ${isActive('/contact') ? 'active' : ''}`}>
+          <Link to="/favorites" className={`header-link ${isActive("/favorites") ? "active" : ""}`}>
+            Favorites
+          </Link>
+          {/* <Link to="/contact" className={`header-link ${isActive("/contact") ? "active" : ""}`}>
             Contact
-          </Link>
-          <Link to="/media" className={`header-link ${isActive('/media') ? 'active' : ''}`}>
+          </Link> */}
+          {/* <Link to="/media" className={`header-link ${isActive('/media') ? 'active' : ''}`}>
             Reviews
-          </Link>
-          <Link to="/contact" className="header-cta-button">
-            Food Menu
-          </Link>
+          </Link> */}
+
         </nav>
       </div>
     </header>

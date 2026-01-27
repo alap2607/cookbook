@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import type { Recipe } from "../services/api";
 import { Clock, Users, Flame, ChevronLeft, Heart, MoreVertical } from "lucide-react";
 import { useState } from "react";
+import { useFavorites } from "../hooks/useFavorites";
 import "./RecipeDetail.css";
 
 interface RecipeDetailProps {
@@ -16,7 +17,7 @@ interface RecipeDetailProps {
 
 export default function RecipeDetail({ recipe }: RecipeDetailProps) {
   const [portions, setPortions] = useState(recipe.servings);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { isFavorite, toggleFavorite } = useFavorites();
 
   const handleIncrementPortions = () => setPortions(portions + 1);
   const handleDecrementPortions = () => {
@@ -66,8 +67,8 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
 
         <button className="btn-add-cookbook">Add to my cooking book</button>
 
-        <button className={`btn-favorite ${isFavorite ? "active" : ""}`} onClick={() => setIsFavorite(!isFavorite)}>
-          <Heart size={24} fill={isFavorite ? "#fff" : "none"} />
+        <button className={`btn-favorite ${isFavorite(recipe.id) ? "active" : ""}`} onClick={() => toggleFavorite(recipe.id)}>
+          <Heart size={24} fill={isFavorite(recipe.id) ? "#fff" : "none"} />
         </button>
       </div>
 

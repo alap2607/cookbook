@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Truck, Clock, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { useRecipes } from "../hooks/useRecipes";
 import Header from "../components/Header";
 import "./HomePage.css";
@@ -57,7 +57,7 @@ export default function HomePage() {
                 <h3 className="home-dish-title">{recipe.title}</h3>
                 <div className="home-dish-meta">
                   <span>{recipe.cookTime * 10} Cal</span>
-                  <span>{recipe.servings * 12}.8 °C</span>
+                  {/* <span>{recipe.servings * 12}.8 °C</span> */}
                 </div>
                 <div className="home-dish-rating">
                   {[...Array(5)].map((_, i) => (

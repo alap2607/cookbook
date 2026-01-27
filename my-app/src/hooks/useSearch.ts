@@ -9,6 +9,7 @@ export interface SearchFilters {
   minServings: number;
   maxServings: number;
   cuisine: string;
+  sortBy: 'default' | 'name-asc' | 'name-desc' | 'time-asc' | 'time-desc' | 'servings-asc' | 'servings-desc';
 }
 
 export function useSearchRecipes(

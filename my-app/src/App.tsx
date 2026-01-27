@@ -8,6 +8,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import RecipesPage from './pages/RecipesPage';
 import RecipeDetailPage from './pages/RecipeDetailPage';
+import FavoritesPage from './pages/FavoritesPage';
 import AdminPage from './pages/AdminPage';
 import LoginPage from './pages/LoginPage';
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/recipes/:id",
     element: <RecipeDetailPage />,
+  },
+  {
+    path: "/favorites",
+    element: <FavoritesPage />,
   },
   {
     path: "/login",

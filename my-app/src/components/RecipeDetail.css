@@ -171,6 +171,14 @@
 .btn-favorite.active {
   background: rgba(255, 255, 255, 0.4);
   border-color: white;
+  animation: heartBounce 0.4s ease;
+}
+
+@keyframes heartBounce {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(0.95); }
+  75% { transform: scale(1.1); }
 }
 
 /* Right Panel - White Background */
