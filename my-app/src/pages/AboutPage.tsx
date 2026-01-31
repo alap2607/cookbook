@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import { Sparkles, Heart, UtensilsCrossed, Globe, Zap, BookOpen, Users, ChefHat } from 'lucide-react';
+import { UtensilsCrossed, Globe, Zap, BookOpen, Users, ChefHat } from 'lucide-react';
 import './AboutPage.css';
 import Footer from '../components/Footer';
 

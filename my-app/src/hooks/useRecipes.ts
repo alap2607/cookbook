@@ -13,8 +13,8 @@ export function useRecipes() {
       setError(null);
       const data = await api.getAllRecipes();
       setRecipes(data);
-    } catch (err: any) {
-      setError(err.message || "Failed to fetch recipes");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to fetch recipes");
     } finally {
       setLoading(false);
     }
@@ -44,8 +44,8 @@ export function useRecipe(id: string | undefined) {
         setError(null);
         const data = await api.getRecipeById(id);
         setRecipe(data);
-      } catch (err: any) {
-        setError(err.message || "Failed to fetch recipe");
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to fetch recipe");
       } finally {
         setLoading(false);
       }

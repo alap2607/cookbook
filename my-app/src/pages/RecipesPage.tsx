@@ -62,7 +62,7 @@ export default function RecipesPage() {
 
   // Extract unique cuisines for filter dropdown
   const availableCuisines = useMemo(() => {
-    return [...new Set(recipes.map(r => r.cusine))].sort();
+    return [...new Set(recipes.map(r => r.cuisine))].sort();
   }, [recipes]);
 
   return (

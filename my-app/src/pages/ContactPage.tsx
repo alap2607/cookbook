@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from '../components/Header';
-import { Sparkles, Heart, Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import Footer from '../components/Footer';
 
 export default function ContactPage() {

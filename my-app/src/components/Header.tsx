@@ -16,7 +16,7 @@ export default function Header() {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="header-logo">
-          <h1 className="header-logo-title">Culinaria</h1>
+          <h1 className="header-logo-title"><img src="/logo.png" alt="Culinaria Logo" className="header-logo-image" /></h1>
         </Link>
 
         <nav className="header-nav">

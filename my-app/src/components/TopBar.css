@@ -1,0 +1,142 @@
+/* TopBar Component Styles */
+
+.topbar {
+  height: 72px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #F0E6E6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Search */
+.topbar-search {
+  display: flex;
+  align-items: center;
+  background: #F8F8F8;
+  border-radius: 12px;
+  padding: 12px 20px;
+  width: 400px;
+  max-width: 100%;
+}
+
+.topbar-search-icon {
+  color: #9CA3AF;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.topbar-search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.9rem;
+  color: #374151;
+  width: 100%;
+}
+
+.topbar-search-input::placeholder {
+  color: #9CA3AF;
+}
+
+/* Actions */
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-icon-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748B;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.topbar-icon-button:hover {
+  background: #F8F8F8;
+  color: #E53E6A;
+  border-color: #E53E6A;
+}
+
+.topbar-notification-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  background: #E53E6A;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* User Profile */
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px 8px 8px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.topbar-user:hover {
+  background: #F8F8F8;
+}
+
+.topbar-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.topbar-user-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.topbar-user-chevron {
+  color: #9CA3AF;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .topbar-search {
+    width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 16px;
+  }
+
+  .topbar-search {
+    width: 200px;
+    padding: 10px 16px;
+  }
+
+  .topbar-user-name {
+    display: none;
+  }
+
+  .topbar-icon-button {
+    width: 40px;
+    height: 40px;
+  }
+}

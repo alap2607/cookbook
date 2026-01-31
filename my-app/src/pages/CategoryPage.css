@@ -1,0 +1,403 @@
+/* CategoryPage Styles */
+
+.category-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Category Header */
+.category-header {
+  position: relative;
+  height: 200px;
+  border-radius: 24px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.category-header-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+}
+
+.category-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+
+.category-breadcrumb a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.category-breadcrumb a:hover {
+  color: white;
+}
+
+.category-breadcrumb svg {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.category-breadcrumb span {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.category-breadcrumb .current {
+  color: white;
+  font-weight: 500;
+}
+
+.category-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Filters Bar */
+.category-filters-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  background: white;
+  color: #374151;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-toggle-btn:hover,
+.filter-toggle-btn.active {
+  border-color: #E53E6A;
+  color: #E53E6A;
+}
+
+.category-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.category-pill-btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #F3F4F6;
+  color: #374151;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-pill-btn:hover {
+  background: #E5E7EB;
+}
+
+.category-pill-btn.active {
+  background: #E53E6A;
+  color: white;
+}
+
+.clear-filters-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background: #FEF2F2;
+  color: #DC2626;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-filters-btn:hover {
+  background: #FECACA;
+}
+
+.filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #E53E6A;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 50%;
+}
+
+/* Quick Filter Pills */
+.quick-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.quick-filter-pill {
+  padding: 8px 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 20px;
+  background: white;
+  color: #374151;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-filter-pill:hover {
+  border-color: #E53E6A;
+  color: #E53E6A;
+}
+
+.quick-filter-pill.active {
+  background: #E53E6A;
+  border-color: #E53E6A;
+  color: white;
+}
+
+/* Main Layout with Filter Sidebar */
+.category-main {
+  display: flex-center;
+  gap: 24px;
+}
+
+.category-main.with-filters .category-results {
+  flex: 1;
+}
+
+/* Filter Sidebar */
+.filter-sidebar {
+  width: 280px;
+  min-width: 280px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  height: fit-content;
+  position: sticky;
+  top: 24px;
+}
+
+.filter-group {
+  border-bottom: 1px solid #F3F4F6;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.filter-group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.filter-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1F2937;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.filter-group-header:hover {
+  color: #E53E6A;
+}
+
+.filter-group-header svg {
+  transition: transform 0.2s ease;
+  color: #9CA3AF;
+}
+
+.filter-group-header svg.rotated {
+  transform: rotate(180deg);
+}
+
+.filter-group-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 12px;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.filter-checkbox input {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #D1D5DB;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.filter-checkbox input:checked + .checkbox-custom {
+  border-color: #E53E6A;
+  background: #E53E6A;
+}
+
+.filter-checkbox input:checked + .checkbox-custom::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Multi-select checkboxes (squares) */
+.filter-checkbox.multi .checkbox-custom {
+  border-radius: 4px;
+}
+
+.filter-checkbox.multi input:checked + .checkbox-custom::after {
+  border-radius: 2px;
+}
+
+/* Results */
+.category-results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.results-count {
+  font-size: 0.9rem;
+  color: #64748B;
+}
+
+.category-loading,
+.category-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  text-align: center;
+  color: #64748B;
+}
+
+.category-empty p {
+  margin: 0 0 16px 0;
+}
+
+.reset-btn {
+  padding: 10px 24px;
+  border: 1px solid #E53E6A;
+  border-radius: 25px;
+  background: transparent;
+  color: #E53E6A;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: #E53E6A;
+  color: white;
+}
+
+/* Recipe Grid */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .filter-sidebar {
+    width: 240px;
+    min-width: 240px;
+  }
+
+  .quick-filter-pills {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-header {
+    height: 160px;
+  }
+
+  .category-header-overlay {
+    padding: 24px;
+  }
+
+  .category-title {
+    font-size: 1.75rem;
+  }
+
+  .category-filters-bar {
+    gap: 12px;
+  }
+
+  .category-main {
+    flex-direction: column;
+  }
+
+  .filter-sidebar {
+    width: 100%;
+    min-width: 100%;
+    position: static;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}

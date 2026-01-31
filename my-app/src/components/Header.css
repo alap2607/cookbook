@@ -26,12 +26,14 @@
 }
 
 .header-logo-title {
-  font-size: 1.6rem;
-  font-weight: 700;
   margin: 0;
-  font-family: 'Georgia', serif;
-  color: #2d2d2d;
-  letter-spacing: 0.5px;
+  line-height: 0;
+}
+
+.header-logo-image {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
 }
 
 .header-nav {

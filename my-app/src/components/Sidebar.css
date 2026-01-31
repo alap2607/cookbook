@@ -1,0 +1,267 @@
+/* Sidebar Component Styles */
+
+.sidebar {
+  width: 240px;
+  min-width: 240px;
+  height: 100vh;
+  background: #FFFFFF;
+  border-right: 1px solid #F0E6E6;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px 16px;
+}
+
+/* Logo */
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  padding: 8px 12px;
+  margin-bottom: 32px;
+}
+
+.sidebar-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: #E53E6A;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #E53E6A;
+}
+
+/* Navigation */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #64748B;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav-item:hover {
+  background: #FFF1F3;
+  color: #E53E6A;
+}
+
+.sidebar-nav-item.active {
+  background: #FFF1F3;
+  color: #E53E6A;
+  font-weight: 600;
+}
+
+.sidebar-nav-item.active .sidebar-nav-icon {
+  color: #E53E6A;
+}
+
+.sidebar-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.sidebar-nav-label {
+  color: inherit;
+}
+
+/* Upgrade Card */
+.sidebar-upgrade {
+  background: linear-gradient(135deg, #E53E6A 0%, #F06292 100%);
+  border-radius: 20px;
+  padding: 24px 20px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.sidebar-upgrade-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.sidebar-upgrade-text {
+  color: white;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.sidebar-upgrade-button {
+  background: white;
+  color: #E53E6A;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 28px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.sidebar-upgrade-button:hover {
+  background: #FFF1F3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Category Sections */
+.sidebar-sections {
+  margin-top: 16px;
+  border-top: 1px solid #F0E6E6;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: #64748B;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar-section-header:hover {
+  background: #FFF1F3;
+  color: #E53E6A;
+}
+
+.sidebar-section-header.expanded {
+  background: #FFF1F3;
+  color: #E53E6A;
+}
+
+.sidebar-section-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.sidebar-section-label {
+  flex: 1;
+  color: inherit;
+}
+
+.sidebar-section-chevron {
+  transition: transform 0.2s ease;
+  color: inherit;
+}
+
+.sidebar-section-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.sidebar-section-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 24px;
+  margin-top: 4px;
+}
+
+.sidebar-sub-item {
+  display: block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #64748B;
+  font-size: 0.85rem;
+  font-weight: 400;
+  transition: all 0.2s ease;
+}
+
+.sidebar-sub-item:hover {
+  background: #FFF1F3;
+  color: #E53E6A;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 80px;
+    min-width: 80px;
+  }
+
+  .sidebar-logo-text,
+  .sidebar-nav-label,
+  .sidebar-upgrade-text,
+  .sidebar-sections {
+    display: none;
+  }
+
+  .sidebar-logo {
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .sidebar-nav-item {
+    justify-content: center;
+    padding: 14px;
+  }
+
+  .sidebar-upgrade {
+    padding: 16px 12px;
+  }
+
+  .sidebar-upgrade-button {
+    padding: 10px 12px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

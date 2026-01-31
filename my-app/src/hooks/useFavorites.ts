@@ -33,6 +33,7 @@ export interface UseFavoritesReturn {
   removeFavorite: (id: string) => void;
   toggleFavorite: (id: string) => void;
   getFavoriteRecipes: (allRecipes: Recipe[]) => Recipe[];
+  getFavoriteIds: () => string[];
 }
 
 export function useFavorites(): UseFavoritesReturn {
@@ -88,12 +89,17 @@ export function useFavorites(): UseFavoritesReturn {
     return allRecipes.filter(recipe => favorites.has(recipe.id));
   };
 
+  const getFavoriteIds = (): string[] => {
+    return Array.from(favorites);
+  };
+
   return {
     favorites,
     isFavorite,
     addFavorite,
     removeFavorite,
     toggleFavorite,
-    getFavoriteRecipes
+    getFavoriteRecipes,
+    getFavoriteIds
   };
 }

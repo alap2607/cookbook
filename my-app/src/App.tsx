@@ -1,16 +1,15 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-// import MediaPage from './pages/MediaPage';
 import ContactPage from './pages/ContactPage';
 import RecipesPage from './pages/RecipesPage';
 import RecipeDetailPage from './pages/RecipeDetailPage';
 import FavoritesPage from './pages/FavoritesPage';
-import AdminPage from './pages/AdminPage';
-import LoginPage from './pages/LoginPage';
+import CategoryPage from './pages/CategoryPage';
+import CreateRecipePage from './pages/CreateRecipePage';
+import OnboardingPage from './pages/OnboardingPage';
+import PricingPage from './pages/PricingPage';
 
 const router = createBrowserRouter([
   {
@@ -21,10 +20,6 @@ const router = createBrowserRouter([
     path: "/about",
     element: <AboutPage />,
   },
-  // {
-  //   path: "/media",
-  //   element: <MediaPage />,
-  // },
   {
     path: "/contact",
     element: <ContactPage />,
@@ -42,25 +37,25 @@ const router = createBrowserRouter([
     element: <FavoritesPage />,
   },
   {
-    path: "/login",
-    element: <LoginPage />,
+    path: "/category",
+    element: <CategoryPage />,
   },
   {
-    path: "/admin",
-    element: (
-      <ProtectedRoute>
-        <AdminPage />
-      </ProtectedRoute>
-    ),
+    path: "/create",
+    element: <CreateRecipePage />,
+  },
+  {
+    path: "/onboarding",
+    element: <OnboardingPage />,
+  },
+  {
+    path: "/pricing",
+    element: <PricingPage />,
   },
 ]);
 
 function App() {
-  return (
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

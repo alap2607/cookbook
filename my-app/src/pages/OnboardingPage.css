@@ -1,0 +1,208 @@
+/* OnboardingPage Styles */
+
+.onboarding-page {
+  min-height: 100vh;
+  background: #FAFAFA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.onboarding-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Logo */
+.onboarding-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 48px;
+  justify-content: center;
+}
+
+.onboarding-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: #E53E6A;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onboarding-logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #E53E6A;
+}
+
+/* Content */
+.onboarding-content {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.onboarding-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+.onboarding-subtitle {
+  font-size: 0.95rem;
+  color: #64748B;
+  text-align: center;
+  margin: 0 0 32px 0;
+  line-height: 1.5;
+}
+
+/* Cuisines Grid */
+.cuisines-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.cuisine-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 12px;
+  border: 2px solid #E5E7EB;
+  border-radius: 16px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cuisine-option:hover {
+  border-color: #E53E6A;
+  background: #FFF1F3;
+}
+
+.cuisine-option.selected {
+  border-color: #E53E6A;
+  background: #FFF1F3;
+}
+
+.cuisine-flag {
+  font-size: 2rem;
+}
+
+.cuisine-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.cuisine-option.selected .cuisine-label {
+  color: #E53E6A;
+}
+
+/* Actions */
+.onboarding-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  background: white;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #F9FAFB;
+}
+
+.next-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 12px;
+  background: #E53E6A;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.next-btn:hover:not(:disabled) {
+  background: #C4315A;
+  transform: translateY(-1px);
+}
+
+.next-btn:disabled {
+  background: #F9A8C0;
+  cursor: not-allowed;
+}
+
+/* Progress */
+.onboarding-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #E5E7EB;
+  transition: all 0.2s ease;
+}
+
+.progress-dot.active {
+  background: #E53E6A;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .onboarding-content {
+    padding: 24px;
+  }
+
+  .cuisines-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .onboarding-title {
+    font-size: 1.25rem;
+  }
+
+  .onboarding-actions {
+    flex-direction: column;
+  }
+
+  .back-btn,
+  .next-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

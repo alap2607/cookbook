@@ -1,53 +1,6 @@
-// Type definitions
-export interface Ingredient {
-  item: string;
-  quantity: number;
-  unit: string;
-}
-
-export interface Recipe {
-  temperingingredients: any;
-  id: string;
-  title: string;
-  description: string;
-  category: 'vegetarian' | 'chicken' | 'quick' | 'spicy';
-  cusine: string;
-  cookTime: number;
-  servings: number;
-  imageUrl: string;
-  ingredients: Ingredient[];
-  instructions: string[];
-  tags: string[];
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface CreateRecipeInput {
-  temperingingeridents: any;
-  title: string;
-  description: string;
-  category: 'vegetarian' | 'chicken' | 'quick' | 'spicy';
-  cusine: string;
-  cookTime: number;
-  servings: number;
-  imageUrl: string;
-  ingredients: Ingredient[];
-  instructions: string[];
-  tags: string[];
-}
-
-export interface UpdateRecipeInput {
-  title?: string;
-  description?: string;
-  category?: 'vegetarian' | 'chicken' | 'quick' | 'spicy';
-  cusine?: string;
-  cookTime?: number;
-  servings?: number;
-  imageUrl?: string;
-  ingredients?: Ingredient[];
-  instructions?: string[];
-  tags?: string[];
-}
+// Import types from centralized type definitions
+import type { Recipe, CreateRecipeInput, UpdateRecipeInput } from '../types/recipe';
+export type { Recipe, Ingredient, CreateRecipeInput, UpdateRecipeInput } from '../types/recipe';
 
 const API_BASE_URL = '/api';
 
@@ -106,39 +59,4 @@ export async function deleteRecipe(id: string): Promise<void> {
     method: 'DELETE',
   });
   await handleResponse<{ message: string; id: string }>(response);
-}
-
-// Auth API functions
-export interface LoginResponse {
-  success: boolean;
-  token: string;
-  message?: string;
-}
-
-export interface ValidateTokenResponse {
-  valid: boolean;
-}
-
-// Login with password
-export async function login(password: string): Promise<LoginResponse> {
-  const response = await fetch(`${API_BASE_URL}/auth/login`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ password }),
-  });
-  return handleResponse<LoginResponse>(response);
-}
-
-// Validate auth token
-export async function validateToken(token: string): Promise<ValidateTokenResponse> {
-  const response = await fetch(`${API_BASE_URL}/auth/validate`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ token }),
-  });
-  return handleResponse<ValidateTokenResponse>(response);
 }
