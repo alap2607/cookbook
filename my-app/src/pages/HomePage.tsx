@@ -68,7 +68,7 @@ export default function HomePage() {
             <h1 className="hero-title">
               Taste the World: Discover diverse cuisines worldwide at your home!
             </h1>
-            <Link to="/category" className="hero-cta">
+            <Link to="/categories" className="hero-cta">
               <span>Explore More</span>
               <ArrowRight size={18} />
             </Link>
@@ -85,7 +85,7 @@ export default function HomePage() {
         <section className="categories-section">
           <div className="categories-header">
             <h2 className="categories-title">Categories</h2>
-            <Link to="/category" className="categories-view-all">View all</Link>
+            <Link to="/categories" className="categories-view-all">View all</Link>
           </div>
           <div className="categories-list">
             {categories.map((category) => (

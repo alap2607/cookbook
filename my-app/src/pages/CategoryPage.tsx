@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { Filter, ChevronRight, X, ChevronDown } from "lucide-react";
+import { Filter, ChevronRight, X, ChevronDown, Search } from "lucide-react";
 import { useRecipes } from "../hooks/useRecipes";
 import Layout from "../components/Layout";
 import RecipeCardNew from "../components/RecipeCardNew";
@@ -11,6 +11,8 @@ import {
   TIME_CATEGORIES,
   DIFFICULTY_LEVELS,
   HEALTH_TAGS,
+  OCCASIONS,
+  COOKING_METHODS,
   APP_EXCLUSIVE_SECTIONS,
   type DietPreference,
   type AppExclusive,
@@ -39,9 +41,18 @@ export default function CategoryPage() {
   const selectedDifficulty = searchParams.get("difficulty") || "";
   const selectedHealth = searchParams.getAll("health");
   const selectedExclusive = searchParams.get("exclusive") || "";
+  const selectedOccasion = searchParams.get("occasion") || "";
+  const selectedMethod = searchParams.get("method") || "";
+
+  // Check if viewing "All Recipes" (no primary category selected)
+  // Primary categories are: mealType, cuisine, exclusive, occasion, method
+  // Refinement filters (diet, difficulty, time, health) don't change the view mode
+  const isAllRecipes = !selectedMealType && !selectedCuisine && !selectedExclusive &&
+    !selectedOccasion && !selectedMethod;
 
   // Get current category for header
   const getCurrentCategory = () => {
+    // Primary categories (these change the view mode)
     if (selectedExclusive) {
       return APP_EXCLUSIVE_SECTIONS.find(s => s.id === selectedExclusive);
     }
@@ -51,6 +62,13 @@ export default function CategoryPage() {
     if (selectedCuisine) {
       return CUISINES.find(c => c.id === selectedCuisine);
     }
+    if (selectedOccasion) {
+      return OCCASIONS.find(o => o.id === selectedOccasion);
+    }
+    if (selectedMethod) {
+      return COOKING_METHODS.find(m => m.id === selectedMethod);
+    }
+    // If no primary category selected, show "All Recipes" (even with refinement filters)
     return { id: "all", label: "All Recipes", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=400&fit=crop" };
   };
 
@@ -94,8 +112,8 @@ export default function CategoryPage() {
       }
     }
 
-    // Difficulty filter
-    if (selectedDifficulty && recipe.difficulty !== selectedDifficulty) {
+    // Difficulty filter (only for All Recipes)
+    if (isAllRecipes && selectedDifficulty && recipe.difficulty !== selectedDifficulty) {
       return false;
     }
 
@@ -114,9 +132,32 @@ export default function CategoryPage() {
       }
     }
 
-    // Search filter
-    if (searchQuery && !recipe.title.toLowerCase().includes(searchQuery.toLowerCase())) {
+    // Occasion filter
+    if (selectedOccasion) {
+      if (!recipe.occasions?.includes(selectedOccasion as typeof recipe.occasions[number])) {
+        return false;
+      }
+    }
+
+    // Cooking method filter
+    if (selectedMethod && recipe.cookingMethod !== selectedMethod) {
       return false;
+    }
+
+    // Search filter
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      const matchesTitle = recipe.title.toLowerCase().includes(query);
+      const matchesDescription = recipe.description?.toLowerCase().includes(query);
+      const matchesIngredients = recipe.ingredients?.some(ing =>
+        ing.item.toLowerCase().includes(query)
+      );
+      const matchesTags = recipe.tags?.some(tag =>
+        tag.toLowerCase().includes(query)
+      );
+      if (!matchesTitle && !matchesDescription && !matchesIngredients && !matchesTags) {
+        return false;
+      }
     }
 
     return true;
@@ -158,9 +199,6 @@ export default function CategoryPage() {
     }));
   };
 
-  const hasActiveFilters = selectedMealType || selectedCuisine || selectedDiet.length > 0 ||
-    selectedTime || selectedDifficulty || selectedHealth.length > 0 || selectedExclusive || searchQuery;
-
   const activeFilterCount = [
     selectedMealType,
     selectedCuisine,
@@ -172,7 +210,7 @@ export default function CategoryPage() {
   ].filter(Boolean).length;
 
   return (
-    <Layout onSearch={setSearchQuery}>
+    <Layout>
       <div className="category-page">
         {/* Category Header */}
         <section
@@ -185,7 +223,7 @@ export default function CategoryPage() {
             <nav className="category-breadcrumb">
               <Link to="/">Home</Link>
               <ChevronRight size={16} />
-              <span>Category</span>
+              <Link to="/categories">Categories</Link>
               {currentCategory && currentCategory.id !== "all" && (
                 <>
                   <ChevronRight size={16} />
@@ -197,54 +235,83 @@ export default function CategoryPage() {
           </div>
         </section>
 
-        {/* Top Filter Bar */}
-        <div className="category-filters-bar">
-          <button
-            className={`filter-toggle-btn ${showFilters ? "active" : ""}`}
-            onClick={() => setShowFilters(!showFilters)}
-          >
-            <Filter size={18} />
-            <span>Filters</span>
-            {activeFilterCount > 0 && (
-              <span className="filter-count">{activeFilterCount}</span>
-            )}
-          </button>
-
-          {/* Quick Filter Pills */}
-          <div className="quick-filter-pills">
-            {DIET_PREFERENCES.slice(0, 4).map((diet) => (
-              <button
-                key={diet.id}
-                className={`quick-filter-pill ${selectedDiet.includes(diet.id) ? "active" : ""}`}
-                onClick={() => updateFilter("diet", diet.id, true)}
-              >
-                {diet.label}
-              </button>
-            ))}
-            {DIFFICULTY_LEVELS.map((diff) => (
-              <button
-                key={diff.id}
-                className={`quick-filter-pill ${selectedDifficulty === diff.id ? "active" : ""}`}
-                onClick={() => updateFilter("difficulty", diff.id)}
-                style={selectedDifficulty === diff.id ? { backgroundColor: diff.color, borderColor: diff.color, color: "white" } : {}}
-              >
-                {diff.label}
-              </button>
-            ))}
+        {/* Search Bar for specific category */}
+        {!isAllRecipes && (
+          <div className="category-search-bar">
+            <div className="category-search-input-wrapper">
+              <Search size={20} className="category-search-icon" />
+              <input
+                type="text"
+                placeholder={`Search in ${currentCategory?.label || "recipes"}...`}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="category-search-input"
+              />
+              {searchQuery && (
+                <button
+                  className="category-search-clear"
+                  onClick={() => setSearchQuery("")}
+                >
+                  <X size={16} />
+                </button>
+              )}
+            </div>
+            <span className="results-count">
+              {filteredRecipes.length} {filteredRecipes.length === 1 ? "recipe" : "recipes"}
+            </span>
           </div>
+        )}
 
-          {hasActiveFilters && (
-            <button className="clear-filters-btn" onClick={clearFilters}>
-              <X size={16} />
-              <span>Clear all</span>
+        {/* Filters Bar - Only for All Recipes */}
+        {isAllRecipes && (
+          <div className="category-filters-bar">
+            <button
+              className={`filter-toggle-btn ${showFilters ? "active" : ""}`}
+              onClick={() => setShowFilters(!showFilters)}
+            >
+              <Filter size={18} />
+              <span>Filters</span>
+              {activeFilterCount > 0 && (
+                <span className="filter-count">{activeFilterCount}</span>
+              )}
             </button>
-          )}
-        </div>
 
-        {/* Main Content with Sidebar Filters */}
-        <div className={`category-main ${showFilters ? "with-filters" : ""}`}>
-          {/* Filter Sidebar */}
-          {showFilters && (
+            {/* Quick Filter Pills */}
+            <div className="quick-filter-pills">
+              {DIET_PREFERENCES.slice(0, 4).map((diet) => (
+                <button
+                  key={diet.id}
+                  className={`quick-filter-pill ${selectedDiet.includes(diet.id) ? "active" : ""}`}
+                  onClick={() => updateFilter("diet", diet.id, true)}
+                >
+                  {diet.label}
+                </button>
+              ))}
+              {DIFFICULTY_LEVELS.map((diff) => (
+                <button
+                  key={diff.id}
+                  className={`quick-filter-pill ${selectedDifficulty === diff.id ? "active" : ""}`}
+                  onClick={() => updateFilter("difficulty", diff.id)}
+                  style={selectedDifficulty === diff.id ? { backgroundColor: diff.color, borderColor: diff.color, color: "white" } : {}}
+                >
+                  {diff.label}
+                </button>
+              ))}
+            </div>
+
+            {activeFilterCount > 0 && (
+              <button className="clear-filters-btn" onClick={clearFilters}>
+                <X size={16} />
+                <span>Clear all</span>
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Main Content */}
+        <div className={`category-main ${isAllRecipes && showFilters ? "with-filters" : ""}`}>
+          {/* Filter Sidebar - Only for All Recipes */}
+          {isAllRecipes && showFilters && (
             <aside className="filter-sidebar">
               {/* Meal Type */}
               <div className="filter-group">
@@ -428,20 +495,29 @@ export default function CategoryPage() {
 
           {/* Results */}
           <div className="category-results">
-            <div className="results-header">
-              <span className="results-count">
-                {filteredRecipes.length} {filteredRecipes.length === 1 ? "recipe" : "recipes"} found
-              </span>
-            </div>
+            {isAllRecipes && (
+              <div className="results-header">
+                <span className="results-count">
+                  {filteredRecipes.length} {filteredRecipes.length === 1 ? "recipe" : "recipes"} found
+                </span>
+              </div>
+            )}
 
             {loading ? (
               <div className="category-loading">Loading recipes...</div>
             ) : filteredRecipes.length === 0 ? (
               <div className="category-empty">
-                <p>No recipes found matching your criteria.</p>
-                <button className="reset-btn" onClick={clearFilters}>
-                  Reset filters
-                </button>
+                <p>No recipes found{searchQuery ? ` for "${searchQuery}"` : ""}.</p>
+                {(searchQuery || !isAllRecipes) && (
+                  <button className="reset-btn" onClick={() => setSearchQuery("")}>
+                    Clear search
+                  </button>
+                )}
+                {isAllRecipes && activeFilterCount > 0 && (
+                  <button className="reset-btn" onClick={clearFilters}>
+                    Reset filters
+                  </button>
+                )}
               </div>
             ) : (
               <div className="category-grid">
